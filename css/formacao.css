@@ -1,7 +1,8 @@
 .formacao {
-  background: var(--color-1);
+  background: var(--verde-claro);
   color: var(--branco);
 }
+
 .formacao-container {
   padding: 120px 20px;
   grid-template-columns: 1fr 2fr;
@@ -17,6 +18,7 @@
   position: absolute;
   bottom: -50px;
   left: 20px;
+  z-index: 2;
 }
 
 .formacao .subtitulo {
@@ -47,15 +49,21 @@
   margin: 20px;
   background: var(--preto);
   padding: 20px;
-  border-radius: 4px;
+  border-radius: var(--borda-arredondada);
   display: flex;
   flex-direction: column;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.faculdade:hover {
+  transform: translateY(-5px);
 }
 
 .faculdade-tipo {
   font-size: 0.875rem;
   text-transform: uppercase;
-  color: var(--color-2);
+  color: var(--color);
   margin-bottom: 10px;
 }
 
@@ -79,17 +87,20 @@
 
 .faculdade-instituicao {
   font-size: 1.125rem;
-  color: var(--color-2);
+  color: var(--color);
 }
 
 .cursos {
   margin-bottom: 60px;
 }
+.formacao-extra {
+  color: var(--shadow);
+}
 
 .formacao-extra h3 {
   font-size: 0.875rem;
   line-height: 1.4;
-  color: var(--color-4);
+  color: var(--color);
   text-transform: uppercase;
   margin-bottom: 30px;
   position: relative;
@@ -103,6 +114,15 @@
   position: absolute;
   left: -36px;
   top: -4px;
+}
+.projeto-links a {
+  color: var(--preto);
+  text-decoration: none;
+  font-size: 1rem;
+  margin-right: 10px;
+}
+.projeto-links a:hover {
+  text-decoration: underline;
 }
 
 .cursos h3::before {
@@ -120,7 +140,7 @@
 }
 
 .formacao-extra span {
-  color: var(--color-4);
+  color: var(--color);
 }
 
 .cursos li {
@@ -134,15 +154,17 @@
     padding: 60px 20px;
     gap: 40px;
   }
+  
   .formacao .subtitulo {
     color: var(--branco);
   }
+  
   .formacao-texto {
     font-size: 1.25rem;
   }
+  
   .formacao-extra h3::before {
     position: initial;
     margin-bottom: 10px;
   }
 }
-
