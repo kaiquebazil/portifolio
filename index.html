@@ -1,350 +1,491 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kaique Bazil - Programador</title>
-  <meta name="description" content="Desenvolvedor Front End">
-  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-  <!-- CSS -->
-  <link rel="stylesheet" href="./css/global.css">
-  <link rel="stylesheet" href="./css/header.css">
-  <link rel="stylesheet" href="./css/introducao.css">
-  <link rel="stylesheet" href="./css/experiencia.css">
-  <link rel="stylesheet" href="./css/formacao.css">
-  <link rel="stylesheet" href="./css/footer.css">
-  <link rel="stylesheet" href="./css/font-awesome.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Kaique Bazil — Dev</title>
+  <meta name="description" content="Desenvolvedor Front End & Mobile — Kaique Bazil">
+  <link rel="shortcut icon" href="img/detalhe.svg" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="logo">Kaique Bazil</div>
-    <nav>
-      <ul class="menu">
-        <li><a href="#experiencia">Sobre Mim</a></li>
-        <li><a href="#formacao">Formação</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-    <button class="language-switcher" id="languageSwitcher">EN</button>
-    <div class="mobile">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-follow" id="curF"></div>
+<div class="scroll-line" id="scrollLine"></div>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo-text">KB<span>.</span></a>
+  <nav>
+    <div class="nav-links" id="navLinks">
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#certificados">Certificados</a>
+      <a href="#formacao">Formação</a>
+      <a href="#contato">Contato</a>
     </div>
-  </header>
-
-  <!-- Main Content -->
-  <main class="container introducao">
-    <img src="./img/main2.jpg" alt="Kaique Bazil" width="360" height="520">
-    <div>
-      <h1>Desenvolvedor<br>Web &<br>Mobile</h1>
-      <p>Apaixonado por Tecnologia e Programação.</p>
+    <button class="lang-btn" id="langBtn">EN</button>
+    <div class="mobile-toggle" id="mobileToggle">
+      <span></span><span></span><span></span>
     </div>
-  </main>
+  </nav>
+</header>
 
-  <!-- About Section -->
-  <section class="container experiencia" id="experiencia" aria-label="Sobre Mim">
-    <h2 class="subtitulo">Sobre <br> Mim</h2>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-circle hbc1"></div>
+  <div class="hero-bg-circle hbc2"></div>
+  <div class="hero-grid max-w" style="max-width:1100px; margin:0 auto; width:100%">
     <div>
-      <p class="experiencia-texto">Desenvolvo projetos como o um <strong>Controle de despezas</strong>, <strong>Sites
-          para Modelo</strong>, <strong>Calculadora</strong> e Muito Mais. Para aplicativos como a kaisui eu trabalhei
-        no <strong>UX</strong> e <strong>UI Design</strong> do projeto.</p>
-
-
-      <div class="projeto-itens">
-        <div class="projeto">
-          <span class="projeto-ano">2025</span>
-          <h3 class="projeto-titulo">Finance Flex</h3>
-          <span class="projeto-titulo">Foi Criado <br> Com:</span>
-          <p class="projeto-texto">Um aplicativo web de gestão financeira pessoal que ajuda usuários a controlar
-            receitas, despesas e contas bancárias com Controle de transações, Gerenciamento de cartões de crédito,
-            Calendário de pagamentos, Backup dos dados.</p>
-          <ul class="projeto-habilidades">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-          </ul>
-          <ul class="projeto-links">
-            <li><a target="_blank" href="github.com/kaiquebazil/FinanceFlex">GitHub</a></li>
-            <li><a target="_blank" href="https://kaiquebazil.github.io/FinanceFlex">Ver Projeto</a></li>
-          </ul>
-        </div>
-
-        <div class="projeto">
-          <span class="projeto-ano">2025</span>
-          <h3 class="projeto-titulo">Learning Portuguese</h3>
-          <span class="projeto-titulo">Foi Criado <br> Com:</span>
-          <p class="projeto-texto">Plataforma interativa desenvolvida para apoiar amigos americanos no aprendizado do
-            português. Oferece frases práticas, dicas e recursos multimídia, tornando o estudo mais dinâmico, eficiente
-            e envolvente.</p>
-          <ul class="projeto-habilidades">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-          </ul>
-          <ul class="projeto-links">
-            <li><a target="_blank" href="http://github.com/kaiquebazil/LearningPortuguese">GitHub</a></li>
-            <li><a target="_blank" href="https://kaiquebazil.github.io/LearningPortuguese/">Ver Projeto</a></li>
-          </ul>
-        </div>
-
-        <button id="projeto-botao">Ver Mais</button>
+      <div class="hero-label">Disponível para projetos</div>
+      <h1 class="hero-title">Dev<br><em>Web</em><br>& Mobile</h1>
+      <p class="hero-desc">Apaixonado por criar experiências digitais que combinam código limpo, design e performance. Baseado em Petrópolis, RJ.</p>
+      <div class="hero-cta">
+        <a href="#projetos" class="btn-primary">Ver Projetos →</a>
+        <a href="#contato" class="btn-outline">Entrar em Contato</a>
       </div>
     </div>
-  </section>
-
-  <!-- Inicio projetos -->
-  <div class="projetos-adicionais">
-
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <img src="https://kaiquebazil.github.io/portifolio/img/main2.jpg" alt="Kaique Bazil">
+      </div>
+      <div class="hero-badge">
+        <div class="hero-badge-num">5+</div>
+        <div class="hero-badge-txt">Anos codando</div>
+      </div>
+      <div class="hero-badge2">Open to Work ✦</div>
+    </div>
   </div>
+</section>
 
-  <!-- Projects List -->
-  <ul class="event-list">
-    <div class="projeto">
-      <span class="projeto-ano">2025</span>
-      <h3 class="projeto-titulo">Animais Fantásticos</h3>
-      <span class="projeto-titulo">Foi Criado <br> Com:</span>
-      <p class="projeto-texto">Projeto desenvolvido durante o curso JavaScript Completo ES6 da Origamid, apresentando uma galeria interativa de animais com informações dinâmicas, animações e navegação intuitiva.</p>
-      <ul class="projeto-habilidades">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-      </ul>
-      <ul class="projeto-links">
-        <li><a target="_blank" href="https://github.com/kaiqueprog/animaisfantasticos">GitHub</a></li>
-        <li><a target="_blank" href="https://kaiqueprog.github.io/animaisfantasticos">Ver Projeto</a></li>
-      </ul>
-    </div>
-    <div class="projeto">
-      <span class="projeto-ano">2024</span>
-      <h3 class="projeto-titulo">Bikcraft</h3>
-      <span class="projeto-titulo">Foi Criado <br> Com:</span>
-      <p class="projeto-texto">Site institucional para uma empresa fictícia de bicicletas, desenvolvido durante o curso de HTML E CSS da Origamid. Possui catálogo de produtos, página de orçamentos, animações modernas e layout responsivo.</p>
-      <ul class="projeto-habilidades">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-      </ul>
-      <ul class="projeto-links">
-        <li><a target="_blank" href="https://github.com/kaiqueprog/bikcraft">GitHub</a></li>
-        <li><a target="_blank" href="https://kaiqueprog.github.io/bikcraft">Ver Projeto</a></li>
-      </ul>
-    </div>
-    <div class="projeto">
-      <span class="projeto-ano">2024</span>
-      <h3 class="projeto-titulo">Portifólio de Projetos</h3>
-      <span class="projeto-titulo">Foi Criado <br> Com:</span>
-      <p class="projeto-texto">Portfólio desenvolvido para reunir e apresentar as atividades mais recentes da faculdade, demonstrando a aplicação prática dos conhecimentos adquiridos em programação.</p>
-      <ul class="projeto-habilidades">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-      </ul>
-      <ul class="projeto-links">
-        <li><a target="_blank" href="https://github.com/kaiqueprog/projetos">GitHub</a></li>
-        <li><a target="_blank" href="https://kaiqueprog.github.io/projetos">Ver Projeto</a></li>
-      </ul>
-    </div>
-    <div class="projeto">
-      <span class="projeto-ano">2023</span>
-      <h3 class="projeto-titulo">Techmax</h3>
-      <span class="projeto-titulo">Foi Criado <br> Com:</span>
-      <p class="projeto-texto">Site desenvolvido como atividade do curso de Manutenção de Celulares e Computadores, apresentando uma loja fictícia para divulgação de produtos e serviços</p>
-      <ul class="projeto-habilidades">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-      </ul>
-      <ul class="projeto-links">
-        <li><a target="_blank" href="https://github.com/kaiqueprog/tm">GitHub</a></li>
-        <li><a target="_blank" href="https://kaiqueprog.github.io/tm">Ver Projeto</a></li>
-      </ul>
-    </div>
-    <div class="projeto">
-      <span class="projeto-ano">2022</span>
-      <h3 class="projeto-titulo">Barber Shop</h3>
-      <span class="projeto-titulo">Foi Criado <br> Com:</span>
-      <p class="projeto-texto">É um site criado para divulgar uma barbearia e mostrar a tabela de preços, galeria, a
-        equipe e muito mais.</p>
-      <ul class="projeto-habilidades">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Bootstrap</li>
-        <li>Jquery</li>
-      </ul>
-      <ul class="projeto-links">
-        <li><a target="_blank" href="https://github.com/kaiqueprog/bs">GitHub</a></li>
-        <li><a target="_blank" href="https://kaiqueprog.github.io/bs">Ver Projeto</a></li>
-      </ul>
-    </div>
-    <div class="projeto">
-      <span class="projeto-ano">2022</span>
-      <h3 class="projeto-titulo">Jhennifer Modelo</h3>
-      <span class="projeto-titulo">Foi Criado <br> Com:</span>
-      <p class="projeto-texto">Portfólio online para modelo profissional com galeria de fotos, currículo e informações
-        de contato. Design elegante e minimalista para destacar o trabalho artístico.</p>
-      <ul class="projeto-habilidades">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-      </ul>
-      <ul class="projeto-links">
-        <li><a target="_blank" href="https://github.com/kaiqueprog/JheniferModelo">GitHub</a></li>
-        <li><a target="_blank" href="https://kaiqueprog.github.io/JheniferModelo">Ver Projeto</a></li>
-      </ul>
-    </div>
-
-    <div class="projeto">
-      <span class="projeto-ano">2021</span>
-      <h3 class="projeto-titulo">Calculadora</h3>
-      <span class="projeto-titulo">Foi Criado <br> Com:</span>
-      <p class="projeto-texto">Calculadora web com operações básicas e avançadas, incluindo memória e histórico de
-        cálculos. Interface amigável com modo claro e escuro.</p>
-      <ul class="projeto-habilidades">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Bootstrap</li>
-      </ul>
-      <ul class="projeto-links">
-        <li><a target="_blank" href="https://github.com/kaiqueprog/Calculadora">GitHub</a></li>
-        <li><a target="_blank" href="https://kaiqueprog.github.io/Calculadora">Ver Projeto</a></li>
-      </ul>
-    </div>
-
-    <div class="projeto">
-      <span class="projeto-ano">2021</span>
-      <h3 class="projeto-titulo">Uau Tv</h3>
-      <span class="projeto-titulo">Foi Criado <br> Com:</span>
-      <p class="projeto-texto">Plataforma de streaming com catálogo de vídeos, player personalizado e sistema de
-        categorias. Integração com API para carregamento dinâmico de conteúdo.</p>
-      <ul class="projeto-habilidades">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Bootstrap</li>
-        <li>Jquery</li>
-      </ul>
-      <ul class="projeto-links">
-      <li><a target="_blank" href="https://github.com/kaiqueprog/UauTv">GitHub</a></li>
-      <li><a target="_blank" href="https://kaiqueprog.github.io/UauTv">Ver Projeto</a></li>
-  </ul>
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">HTML & CSS</span>
+    <span class="marquee-item">JavaScript</span>
+    <span class="marquee-item">React Native</span>
+    <span class="marquee-item">UI Design</span>
+    <span class="marquee-item">UX Design</span>
+    <span class="marquee-item">Bootstrap</span>
+    <span class="marquee-item">jQuery</span>
+    <span class="marquee-item">Git & GitHub</span>
+    <span class="marquee-item">Responsive Design</span>
+    <span class="marquee-item">HTML & CSS</span>
+    <span class="marquee-item">JavaScript</span>
+    <span class="marquee-item">React Native</span>
+    <span class="marquee-item">UI Design</span>
+    <span class="marquee-item">UX Design</span>
+    <span class="marquee-item">Bootstrap</span>
+    <span class="marquee-item">jQuery</span>
+    <span class="marquee-item">Git & GitHub</span>
+    <span class="marquee-item">Responsive Design</span>
   </div>
-  <div class="projeto">
-      <span class="projeto-ano">2020</span>
-      <h3 class="projeto-titulo">Nutrição</h3>
-      <span class="projeto-titulo">Foi Criado <br> Com:</span>
-      <p class="projeto-texto">Aplicativo web desenvolvido a partir de ideias do curso de JavaScript da Udemy. Permite calcular IMC.</p>
-      <ul class="projeto-habilidades">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-      </ul>
-      <ul class="projeto-links">
-        <li><a target="_blank" href="https://github.com/kaiqueprog/nutricao">GitHub</a></li>
-        <li><a target="_blank" href="https://kaiqueprog.github.io/nutricao">Ver Projeto</a></li>
-      </ul>
-    </div>
-    <div class="projeto">
-      <span class="projeto-ano">2020</span>
-      <h3 class="projeto-titulo">SK orcamento</h3>
-      <span class="projeto-titulo">Foi Criado <br> Com:</span>
-      <p class="projeto-texto">Gerenciador de despesas baseado no Curso Desenvolvimento Web Completo - 20 cursos + 20 projetos da udemy.</p>
-      <ul class="projeto-habilidades">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Bootstrap</li>
-        <li>Jquery</li>
-      </ul>
-      <ul class="projeto-links">
-        <li><a target="_blank" href="https://github.com/kaiqueprog/skorcamento">GitHub</a></li>
-        <li><a target="_blank" href="https://kaiqueprog.github.io/skorcamento">Ver Projeto</a></li>
-      </ul>
-    </div>    
-  </ul>
-  <!-- Education Section -->
-  <section class="formacao" id="formacao" aria-label="Formação">
-    <div class="container formacao-container">
-      <h2 class="subtitulo">Formação</h2>
+</div>
 
+<!-- ABOUT -->
+<section id="sobre">
+  <div class="max-w">
+    <div class="section-header fade-up">
       <div>
-        <p class="formacao-texto">
-          Minha mais recente formação foi um curso presencial de <strong>Programação de Computadores</strong> que fiz na
-          <strong>Euro Data</strong>. Além disso me mantenho sempre atualizado com cursos online.
-        </p>
+        <div class="section-num">01 — Sobre Mim</div>
+        <h2 class="section-title">Quem<br>sou eu</h2>
+      </div>
+    </div>
 
-        <ul class="faculdade-lista">
-          <li class="faculdade">
-            <span class="faculdade-tipo">Programação de Computadores</span>
-            <h3 class="faculdade-curso">60 horas</h3>
-            <span class="faculdade-instituicao">EuroData</span>
-          </li>
-          <li class="faculdade">
-            <span class="faculdade-tipo">JavaScript Completo</span>
-            <h3 class="faculdade-curso">39 horas</h3>
-            <span class="faculdade-instituicao">Origamid</span>
-          </li>
-          <li class="faculdade">
-            <span class="faculdade-tipo">Faculdade de ADS</span>
-            <h3 class="faculdade-curso">2º Periodo - Cursando</h3>
-            <span class="faculdade-instituicao">USF</span>
-          </li>
-        </ul>
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <p>Sou um desenvolvedor <strong>Front-End & Mobile</strong> com paixão por criar interfaces funcionais e visualmente atrativas. Atualmente cursando <strong>ADS na USF</strong> e sempre buscando novos desafios.</p>
+        <p>Desenvolvo projetos como <strong>Finance Flex</strong> (gestão financeira), <strong>LinguaFlash</strong> (flashcards multilíngues) e <strong>Kaisui</strong> (app de desenvolvimento pessoal com RPG gamification). Para cada projeto cuido do <strong>UX, UI Design</strong> e implementação.</p>
+        <p>Acredito que bom código e bom design andam juntos — e é isso que busco em cada projeto.</p>
 
-        <div class="formacao-extra">
-          <div class="cursos">
-            <h3>Cursos</h3>
-            <ul>
-              <li>Manutenção de Celulares e Computadores <span>112h</span></li>
-              <li>JavaScript Alura <span>20h</span></li>
-              <li>HTML, CSS e JAVASCRIPT Básico <span>6h</span></li>
-              <li>Criando Sites Profissionais <span>3h</span></li>
-            </ul>
+        <div class="skills-wrap">
+          <div class="skill-category">
+            <div class="skill-cat-name">Frontend</div>
+            <div class="skill-tags">
+              <span class="skill-tag highlight">HTML5</span>
+              <span class="skill-tag highlight">CSS3</span>
+              <span class="skill-tag highlight">JavaScript ES6+</span>
+              <span class="skill-tag">Bootstrap</span>
+              <span class="skill-tag">jQuery</span>
+            </div>
           </div>
-          <div class="idiomas">
-            <h3>Idiomas</h3>
-            <ul>
-              <li>Português <span>/ Nativo</span></li>
-              <li>Inglês <span>/ Intermediário</span></li>
-              <li>Espanhol <span>/ Básico</span></li>
-            </ul>
+          <div class="skill-category">
+            <div class="skill-cat-name">Mobile & Design</div>
+            <div class="skill-tags">
+              <span class="skill-tag highlight">React Native</span>
+              <span class="skill-tag highlight">UI Design</span>
+              <span class="skill-tag highlight">UX Design</span>
+              <span class="skill-tag">Figma</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <div class="skill-cat-name">Ferramentas</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">GitHub</span>
+              <span class="skill-tag">VS Code</span>
+              <span class="skill-tag">Chrome DevTools</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-stats fade-up">
+        <div class="stat-card">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Projetos lançados</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Anos de experiência</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">200+</div>
+          <div class="stat-label">Horas de cursos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Idiomas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projetos">
+  <div class="max-w">
+    <div class="section-header fade-up">
+      <div>
+        <div class="section-num">02 — Projetos</div>
+        <h2 class="section-title">Trabalhos<br>recentes</h2>
+      </div>
+    </div>
+
+    <div class="projects-grid fade-up">
+      <div class="proj-card">
+        <div class="proj-year">2026</div>
+        <h3 class="proj-title">Finance Flex Mobile</h3>
+        <p class="proj-desc">Aplicativo web de gestão financeira pessoal com controle de receitas, despesas, cartões de crédito e calendário de pagamentos.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">React Native</span>
+          <span class="proj-tag">TypeScript</span>
+          <span class="proj-tag">Firebase</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://finance-flex-react.vercel.app/" target="_blank" class="proj-link">Ver Projeto <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a>
+          <a href="https://github.com/kaiquebazil/FinanceFlexReact" target="_blank" class="proj-link ghost">GitHub</a>
+        </div>
+      </div>
+    <div class="projects-grid fade-up">
+      <div class="proj-card">
+        <div class="proj-year">2025</div>
+        <h3 class="proj-title">Finance Flex</h3>
+        <p class="proj-desc">Aplicativo web de gestão financeira pessoal com controle de receitas, despesas, cartões de crédito e calendário de pagamentos.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">HTML</span>
+          <span class="proj-tag">CSS</span>
+          <span class="proj-tag">JavaScript</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://kaiquebazil.github.io/FinanceFlex" target="_blank" class="proj-link">Ver Projeto <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a>
+          <a href="https://github.com/kaiquebazil/FinanceFlex" target="_blank" class="proj-link ghost">GitHub</a>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-year">2026</div>
+        <h3 class="proj-title">LinguaFlash</h3>
+        <p class="proj-desc">Flashcards multilíngues com suporte a 8 idiomas e 122 frases em 14 categorias. Interface dark editorial com foco em imersão.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">HTML</span>
+          <span class="proj-tag">CSS</span>
+          <span class="proj-tag">JavaScript</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://kaiquebazil.github.io/LinguaFlash" target="_blank" class="proj-link">Ver Projeto <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a>
+          <a href="https://github.com/kaiquebazil/LinguaFlash" target="_blank" class="proj-link ghost">GitHub</a>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-year">2026</div>
+        <h3 class="proj-title">Kaisui</h3>
+        <p class="proj-desc">App de desenvolvimento pessoal com sistema de Alter-Ego, RPG gamification, rastreamento de treinos e chat AI integrado.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">React Native</span>
+          <span class="proj-tag">UI/UX</span>
+          <span class="proj-tag">AI</span>
+        </div>
+        <div class="proj-links">
+          <a href="#" target="_blank" class="proj-link">Ver Projeto <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a>
+          <a href="#" target="_blank" class="proj-link ghost">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- More projects -->
+    <div class="projects-more fade-up">
+      <div class="projects-more-inner" id="moreProjects">
+        <div class="proj-card-sm">
+          <div class="proj-year">2025</div>
+          <h3 class="proj-title">Animais Fantásticos</h3>
+          <p class="proj-desc">Galeria interativa com animações e navegação intuitiva. Projeto do curso JavaScript ES6 da Origamid.</p>
+          <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
+          <div class="proj-links"><a href="https://kaiqueprog.github.io/animaisfantasticos" target="_blank" class="proj-link">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
+        </div>
+        <div class="proj-card-sm">
+          <div class="proj-year">2024</div>
+          <h3 class="proj-title">Bikcraft</h3>
+          <p class="proj-desc">Site institucional para empresa fictícia de bicicletas com catálogo, orçamentos e layout responsivo.</p>
+          <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
+          <div class="proj-links"><a href="https://kaiqueprog.github.io/bikcraft" target="_blank" class="proj-link">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
+        </div>
+        <div class="proj-card-sm">
+          <div class="proj-year">2024</div>
+          <h3 class="proj-title">Portfólio de Projetos</h3>
+          <p class="proj-desc">Reunião das atividades da faculdade demonstrando aplicação prática dos conhecimentos em programação.</p>
+          <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
+          <div class="proj-links"><a href="https://kaiqueprog.github.io/projetos" target="_blank" class="proj-link">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
+        </div>
+        <div class="proj-card-sm">
+          <div class="proj-year">2023</div>
+          <h3 class="proj-title">Techmax</h3>
+          <p class="proj-desc">Loja fictícia para divulgação de produtos e serviços de tech, desenvolvida durante curso de manutenção.</p>
+          <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
+          <div class="proj-links"><a href="https://kaiqueprog.github.io/tm" target="_blank" class="proj-link">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
+        </div>
+        <div class="proj-card-sm">
+          <div class="proj-year">2022</div>
+          <h3 class="proj-title">Barber Shop</h3>
+          <p class="proj-desc">Site de barbearia com tabela de preços, galeria e equipe. Usa Bootstrap e jQuery.</p>
+          <div class="proj-tags"><span class="proj-tag">Bootstrap</span><span class="proj-tag">jQuery</span></div>
+          <div class="proj-links"><a href="https://kaiqueprog.github.io/bs" target="_blank" class="proj-link">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
+        </div>
+        <div class="proj-card-sm">
+          <div class="proj-year">2022</div>
+          <h3 class="proj-title">Jhennifer Modelo</h3>
+          <p class="proj-desc">Portfólio online para modelo profissional com galeria e design elegante e minimalista.</p>
+          <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
+          <div class="proj-links"><a href="https://kaiqueprog.github.io/JheniferModelo" target="_blank" class="proj-link">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
+        </div>
+        <div class="proj-card-sm">
+          <div class="proj-year">2021</div>
+          <h3 class="proj-title">Calculadora</h3>
+          <p class="proj-desc">Calculadora web com operações básicas e avançadas, memória, histórico e modo claro/escuro.</p>
+          <div class="proj-tags"><span class="proj-tag">Bootstrap</span><span class="proj-tag">JavaScript</span></div>
+          <div class="proj-links"><a href="https://kaiqueprog.github.io/Calculadora" target="_blank" class="proj-link">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
+        </div>
+        <div class="proj-card-sm">
+          <div class="proj-year">2021</div>
+          <h3 class="proj-title">Uau Tv</h3>
+          <p class="proj-desc">Plataforma de streaming com catálogo, player personalizado e categorias com integração de API.</p>
+          <div class="proj-tags"><span class="proj-tag">Bootstrap</span><span class="proj-tag">jQuery</span></div>
+          <div class="proj-links"><a href="https://kaiqueprog.github.io/UauTv" target="_blank" class="proj-link">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
+        </div>
+        <div class="proj-card-sm">
+          <div class="proj-year">2020</div>
+          <h3 class="proj-title">SK Orçamento</h3>
+          <p class="proj-desc">Gerenciador de despesas completo baseado no curso Desenvolvimento Web Completo da Udemy.</p>
+          <div class="proj-tags"><span class="proj-tag">Bootstrap</span><span class="proj-tag">jQuery</span></div>
+          <div class="proj-links"><a href="https://kaiqueprog.github.io/skorcamento" target="_blank" class="proj-link">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
+        </div>
+      </div>
+      <button class="toggle-more-btn" id="toggleMore">
+        <span id="toggleMoreTxt">Ver mais projetos</span>
+        <span class="arrow">↓</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certificados">
+  <div class="max-w">
+    <div class="section-header fade-up">
+      <div>
+        <div class="section-num">03 — Certificados</div>
+        <h2 class="section-title">Cursos &<br>Certificados</h2>
+      </div>
+    </div>
+
+    <div class="cert-grid">
+      <div class="cert-card fade-up">
+        <div class="cert-icon">🖥️</div>
+        <div class="cert-source">Euro Data</div>
+        <div class="cert-name">Programação de Computadores</div>
+        <div class="cert-hours">60 horas · Presencial</div>
+        <div class="cert-badge">✓ Concluído</div>
+      </div>
+      <div class="cert-card fade-up">
+        <div class="cert-icon">⚡</div>
+        <div class="cert-source">Origamid</div>
+        <div class="cert-name">JavaScript Completo ES6+</div>
+        <div class="cert-hours">39 horas · Online</div>
+        <div class="cert-badge">✓ Concluído</div>
+      </div>
+      <div class="cert-card fade-up">
+        <div class="cert-icon">🎨</div>
+        <div class="cert-source">Origamid</div>
+        <div class="cert-name">HTML e CSS para Iniciantes</div>
+        <div class="cert-hours">Online</div>
+        <div class="cert-badge">✓ Concluído</div>
+      </div>
+      <div class="cert-card fade-up">
+        <div class="cert-icon">📱</div>
+        <div class="cert-source">Euro Data</div>
+        <div class="cert-name">Manutenção de Celulares e Computadores</div>
+        <div class="cert-hours">112 horas · Presencial</div>
+        <div class="cert-badge">✓ Concluído</div>
+      </div>
+      <div class="cert-card fade-up">
+        <div class="cert-icon">🚀</div>
+        <div class="cert-source">Alura</div>
+        <div class="cert-name">JavaScript — Lógica de Programação</div>
+        <div class="cert-hours">20 horas · Online</div>
+        <div class="cert-badge">✓ Concluído</div>
+      </div>
+      <div class="cert-card fade-up">
+        <div class="cert-icon">🌐</div>
+        <div class="cert-source">Udemy</div>
+        <div class="cert-name">Desenvolvimento Web Completo — 20 Projetos</div>
+        <div class="cert-hours">Online</div>
+        <div class="cert-badge">✓ Concluído</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="formacao">
+  <div class="max-w">
+    <div class="section-header fade-up">
+      <div>
+        <div class="section-num">04 — Formação</div>
+        <h2 class="section-title">Minha<br>formação</h2>
+      </div>
+    </div>
+
+    <div class="edu-list fade-up">
+      <div class="edu-item">
+        <div class="edu-period">2025 – atual</div>
+        <div class="edu-info">
+          <div class="edu-course">Análise e Desenvolvimento de Sistemas</div>
+          <div class="edu-school">USF — Universidade São Francisco · 3º Período</div>
+        </div>
+        <span class="edu-hours">Cursando</span>
+      </div>
+      <div class="edu-item">
+        <div class="edu-period">2023</div>
+        <div class="edu-info">
+          <div class="edu-course">Programação de Computadores</div>
+          <div class="edu-school">Euro Data · Presencial</div>
+        </div>
+        <span class="edu-hours">60h</span>
+      </div>
+      <div class="edu-item">
+        <div class="edu-period">2023</div>
+        <div class="edu-info">
+          <div class="edu-course">JavaScript Completo ES6+</div>
+          <div class="edu-school">Origamid · Online</div>
+        </div>
+        <span class="edu-hours">39h</span>
+      </div>
+      <div class="edu-item">
+        <div class="edu-period">2022</div>
+        <div class="edu-info">
+          <div class="edu-course">Manutenção de Celulares e Computadores</div>
+          <div class="edu-school">Euro Data · Presencial</div>
+        </div>
+        <span class="edu-hours">112h</span>
+      </div>
+    </div>
+
+    <div class="lang-section fade-up">
+      <div class="section-num" style="margin-bottom:20px">Idiomas</div>
+      <div class="lang-grid">
+        <div class="lang-item">
+          <div class="lang-flag">🇧🇷</div>
+          <div>
+            <div class="lang-name">Português</div>
+            <div class="lang-level">Nativo</div>
+          </div>
+        </div>
+        <div class="lang-item">
+          <div class="lang-flag">🇺🇸</div>
+          <div>
+            <div class="lang-name">Inglês</div>
+            <div class="lang-level">Intermediário</div>
+          </div>
+        </div>
+        <div class="lang-item">
+          <div class="lang-flag">🇪🇸</div>
+          <div>
+            <div class="lang-name">Espanhol</div>
+            <div class="lang-level">Básico</div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="footer" id="contato">
-    <div class="container footer-container">
-      <p class="footer-texto">Estou disponível para novos projetos no momento. Entre em contato comigo e marcamos uma
-        conversa.</p>
-      <ul class="footer-contato">
-        <li>
-          <a href="mailto:kaiquedesouzabazil@gmail.com">
-            <img src="img/gmail.svg" alt="Gmail">kaiquedesouzabazil@gmail.com</a>
-        </li>
-        <li>
-          <a href="https://instagram.com/kaiquebazil">
-            <img src="img/instagram.svg" alt="instagram">kaiquebazil</a>
-        </li>
-        <li>
-          <a href="https://wa.me/573012343502">
-            <img src="img/whatsapp.svg" alt="what">whatsapp</a>
-        </li>
-      </ul>
-      <p class="footer-copy">Kaique Bazil. Alguns direitos reservados.</p>
+<!-- CONTACT -->
+<section id="contato">
+  <div class="max-w">
+    <div class="section-num fade-up">05 — Contato</div>
+    <h2 class="contact-hero-txt fade-up">Vamos criar algo <em>incrível</em> juntos?</h2>
+
+    <div class="contact-links fade-up">
+      <a href="mailto:kaiquedesouzabazil@gmail.com" class="contact-link-item">
+        <div>
+          <div class="contact-platform">Email</div>
+          <div class="contact-handle">kaiquedesouzabazil@gmail.com</div>
+        </div>
+        <span class="arrow-ic">↗</span>
+      </a>
+      <a href="https://instagram.com/kaiquebazil" target="_blank" class="contact-link-item">
+        <div>
+          <div class="contact-platform">Instagram</div>
+          <div class="contact-handle">@kaiquebazil</div>
+        </div>
+        <span class="arrow-ic">↗</span>
+      </a>
+      <a href="https://wa.me/5521977297049" target="_blank" class="contact-link-item">
+        <div>
+          <div class="contact-platform">WhatsApp</div>
+          <div class="contact-handle">Enviar mensagem</div>
+        </div>
+        <span class="arrow-ic">↗</span>
+      </a>
+      <a href="https://github.com/kaiquebazil" target="_blank" class="contact-link-item">
+        <div>
+          <div class="contact-platform">GitHub</div>
+          <div class="contact-handle">kaiquebazil</div>
+        </div>
+        <span class="arrow-ic">↗</span>
+      </a>
+      <a href="https://www.linkedin.com/in/kaique-bazil-a793ba243/" target="_blank" class="contact-link-item">
+        <div>
+          <div class="contact-platform">LinkedIn</div>
+          <div class="contact-handle">kaique-bazil-a793ba243/</div>
+        </div>
+        <span class="arrow-ic">↗</span>
+      </a>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="js/main.js"></script>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">KB<span>.</span></div>
+  <p>© 2026 Kaique Bazil — Alguns direitos reservados.</p>
+  <p>Petrópolis, RJ 🇧🇷</p>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
-
 </html>
