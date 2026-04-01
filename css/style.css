@@ -680,14 +680,14 @@
       nav .nav-links.open {
         display: flex; flex-direction: column;
         position: fixed; inset: 0;
-        top: 60px;
+        top: 300px;
         background: rgba(8,8,8,0.97);
         backdrop-filter: blur(12px);
         align-items: center; justify-content: center;
         gap: 20px;
         z-index: 99;
       }
-      nav .nav-links.open a { font-size: 1.5rem; }
+      nav .nav-links.open a { font-size: 1.5rem; color: var(--off-white); background-color: var(--card-bg); }
       .mobile-toggle { display: flex; }
       section { padding: 70px 24px; }
       .hero-grid { grid-template-columns: 1fr; gap: 50px; }
