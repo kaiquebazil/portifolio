@@ -23,6 +23,223 @@
       cursor: none;
     }
 
+
+
+    /* Botão simples para abrir o modal */
+    .abrir-modal-btn {
+      background: #c8f55a;
+      color: #080808;
+      border: none;
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 40px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 20px auto;
+      display: flex;
+      transition: 0.2s;
+      box-shadow: 0 2px 8px rgba(200,245,90,0.2);
+    }
+
+    .abrir-modal-btn:hover {
+      background: #a8d43a;
+      transform: scale(1.02);
+    }
+
+    /* OVERLAY DO MODAL (fundo escuro) */
+    .modal-pdf-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.2s, opacity 0.2s ease;
+    }
+
+    .modal-pdf-overlay.ativo {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* JANELA DO MODAL - simples e direta */
+    .modal-pdf-container {
+      background: #111;
+      width: 90%;
+      max-width: 650px;
+      max-height: 85vh;
+      border-radius: 28px;
+      border: 1px solid rgba(200,245,90,0.25);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: fadeScale 0.2s ease;
+    }
+
+    @keyframes fadeScale {
+      from {
+        opacity: 0;
+        transform: scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* CABEÇALHO */
+    .modal-pdf-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: #0c0c0c;
+    }
+
+    .modal-pdf-header h3 {
+      color: #c8f55a;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      font-family: 'Syne', system-ui, sans-serif;
+    }
+
+    .fechar-modal {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #9a9a9a;
+      transition: 0.2s;
+      line-height: 1;
+      padding: 0 6px;
+    }
+
+    .fechar-modal:hover {
+      color: #c8f55a;
+    }
+
+    /* LISTA DE PDFs - rolagem interna */
+    .lista-pdfs {
+      padding: 0.8rem 0.5rem 1.2rem 0.5rem;
+      overflow-y: auto;
+      max-height: 60vh;
+    }
+
+    /* cada item de certificado */
+    .pdf-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #0a0a0a;
+      margin: 10px 12px;
+      padding: 14px 18px;
+      border-radius: 20px;
+      border: 1px solid #222;
+      transition: all 0.2s;
+    }
+
+    .pdf-item:hover {
+      border-color: #c8f55a40;
+      background: #121212;
+      transform: translateX(4px);
+    }
+
+    .pdf-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .pdf-titulo {
+      font-weight: 600;
+      color: #f0ece3;
+      font-size: 0.95rem;
+      letter-spacing: -0.2px;
+    }
+
+    .pdf-detalhe {
+      font-size: 0.7rem;
+      color: #8f8f8f;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pdf-icon-pequeno {
+      font-size: 1rem;
+    }
+
+    .btn-pdf {
+      background: rgba(200,245,90,0.1);
+      border: 1px solid rgba(200,245,90,0.3);
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #c8f55a;
+      text-decoration: none;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: inherit;
+    }
+
+    .btn-pdf:hover {
+      background: #c8f55a;
+      color: #080808;
+      border-color: #c8f55a;
+    }
+
+    /* rodapé opcional */
+    .modal-footer {
+      padding: 0.8rem 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.7rem;
+      color: #5a5a5a;
+      text-align: center;
+      background: #0c0c0c;
+    }
+
+    /* scroll bonito */
+    .lista-pdfs::-webkit-scrollbar {
+      width: 5px;
+    }
+    .lista-pdfs::-webkit-scrollbar-track {
+      background: #1e1e1e;
+      border-radius: 10px;
+    }
+    .lista-pdfs::-webkit-scrollbar-thumb {
+      background: #c8f55a;
+      border-radius: 10px;
+    }
+
+    /* responsivo */
+    @media (max-width: 550px) {
+      .pdf-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .btn-pdf {
+        align-self: flex-start;
+      }
+      .modal-pdf-header h3 {
+        font-size: 1rem;
+      }
+    }
+
     /* Custom Cursor */
     .cursor {
       position: fixed;

@@ -230,3 +230,155 @@ if (heroP && heroP.textContent === '') {
   }
   window.addEventListener('load', type);
 }
+
+// ============================================================
+    // LISTA DE CERTIFICADOS EM PDF (vários exemplos reais e simulados)
+    // Você pode adicionar, remover ou trocar os links facilmente.
+    // Basta editar este array.
+    // ============================================================
+    const certificadosPdf = [
+      {
+        titulo: "Learn CSS - For Beginners",
+        emissor: "Udemy",
+        icone: "⚡",
+        linkPdf: "../certificados/learningcss.pdf"
+      },
+      {
+        titulo: "Inglês Nível Intermediário",
+        emissor: "English Work",
+        icone: "📘",
+        linkPdf: "../certificados/c%20(2).pdf"
+      },
+      {
+        titulo: "Inglês Nível Avançado",
+        emissor: "English Work",
+        icone: "📘",
+        linkPdf: "../certificados/c%20(3).pdf"
+      },
+      {
+        titulo: "Inglês 1",
+        emissor: "Plataforma aprenda",
+        icone: "📘",
+        linkPdf: "../certificados/PROT_2754720884496551.pdf"
+      },
+      {
+        titulo: "Canva: Design Gráfico Descomplicado",
+        emissor: "Udemy",
+        icone: "🎨",
+        linkPdf: "../certificados/canva.pdf"
+      },
+      {
+        titulo: "Forte Mente - Desenvolvimento Pessoal",
+        emissor: "Udemy",
+        icone: "📱",
+        linkPdf: "../certificados/fortemente.pdf"
+      },
+      {
+        titulo: " CURSO DE CONVERSAÇÃO - CONVERSATION CLUB",
+        emissor: "Mais Língua",
+        icone: "🔧",
+        linkPdf: "../certificados/ingles.pdf"
+      },
+      {
+        titulo: "Create Your First Website with HTML, CSS & JavaScript",
+        emissor: "Udemy",
+        icone: "🖥️",
+        linkPdf: "../certificados/htmlecss.pdf"
+      },
+      {
+        titulo: "HTML, CSS, & JavaScript",
+        emissor: "Udemy",
+        icone: "🖥️",
+        linkPdf: "../certificados/htmlcssjs.pdf"
+      },
+      {
+        titulo: " ZOОМ Masterclass: Grundlagen, Anleitungen und geheime Tricks",
+        emissor: "Udemy",
+        icone: "✨",
+        linkPdf: "../certificados/zoom.pdf"
+      }
+    ];
+
+    // Função para renderizar a lista dentro do modal
+    function renderizarListaPDF() {
+      const container = document.getElementById("listaPdfs");
+      if (!container) return;
+
+      // Limpa conteúdo anterior
+      container.innerHTML = "";
+
+      // Percorre array e cria os itens
+      certificadosPdf.forEach(cert => {
+        // elemento principal do item
+        const itemDiv = document.createElement("div");
+        itemDiv.className = "pdf-item";
+
+        // lado esquerdo: info
+        const infoDiv = document.createElement("div");
+        infoDiv.className = "pdf-info";
+
+        const tituloSpan = document.createElement("span");
+        tituloSpan.className = "pdf-titulo";
+        tituloSpan.innerText = cert.titulo;
+
+        const detalheSpan = document.createElement("span");
+        detalheSpan.className = "pdf-detalhe";
+        detalheSpan.innerHTML = `<span class="pdf-icon-pequeno">${cert.icone}</span> ${cert.emissor}`;
+
+        infoDiv.appendChild(tituloSpan);
+        infoDiv.appendChild(detalheSpan);
+
+        // botão/link de visualizar PDF (abre em nova aba)
+        const linkBtn = document.createElement("a");
+        linkBtn.href = cert.linkPdf;
+        linkBtn.target = "_blank";
+        linkBtn.rel = "noopener noreferrer";
+        linkBtn.className = "btn-pdf";
+        linkBtn.innerHTML = "📄 Visualizar PDF →";
+
+        itemDiv.appendChild(infoDiv);
+        itemDiv.appendChild(linkBtn);
+
+        container.appendChild(itemDiv);
+      });
+    }
+
+    // CONTROLE DO MODAL (abrir/fechar)
+    const overlay = document.getElementById("modalPdfOverlay");
+    const abrirBtn = document.getElementById("btnAbrirModal");
+    const fecharBtn = document.getElementById("btnFecharModal");
+
+    function abrirModal() {
+      if (overlay) {
+        overlay.classList.add("ativo");
+        document.body.style.overflow = "hidden"; // evita scroll atrás
+      }
+    }
+
+    function fecharModal() {
+      if (overlay) {
+        overlay.classList.remove("ativo");
+        document.body.style.overflow = "";
+      }
+    }
+
+    // Eventos
+    if (abrirBtn) abrirBtn.addEventListener("click", abrirModal);
+    if (fecharBtn) fecharBtn.addEventListener("click", fecharModal);
+
+    // Clicar no overlay (fundo escuro) também fecha
+    if (overlay) {
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) fecharModal();
+      });
+    }
+
+    // Tecla ESC fecha modal
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && overlay && overlay.classList.contains("ativo")) {
+        fecharModal();
+      }
+    });
+
+    // Renderiza todos os certificados em PDF assim que a página carrega
+    renderizarListaPDF();
