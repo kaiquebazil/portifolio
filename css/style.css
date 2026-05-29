@@ -171,6 +171,8 @@
       transition: all 0.3s;
       letter-spacing: 0.02em;
       display: inline-flex; align-items: center; gap: 8px;
+      position: relative;
+      z-index: 5;
     }
     .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
     .btn-outline {
@@ -183,6 +185,8 @@
       border-radius: 40px;
       border: 1px solid var(--border);
       transition: all 0.3s;
+      position: relative;
+      z-index: 5;
     }
     .btn-outline:hover { border-color: var(--off-white); transform: translateY(-2px); }
 
@@ -384,6 +388,7 @@
       overflow: hidden;
       transition: all 0.4s;
       cursor: pointer;
+      z-index: 5;
     }
     .proj-card:first-child { border-radius: 20px 0 0 0; }
     .proj-card:nth-child(2) { border-radius: 0 20px 0 0; }
@@ -462,6 +467,8 @@
       padding: 26px;
       border: 1px solid var(--border);
       transition: all 0.3s;
+      position: relative;
+      z-index: 5;
     }
     .proj-card-sm:hover { background: #161616; }
     .proj-card-sm .proj-title { font-size: 1rem; margin-bottom: 8px; }
@@ -492,7 +499,10 @@
     .cert-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 12px;
+    }
+    @media (max-width: 1100px) {
+      .cert-grid { grid-template-columns: repeat(2, 1fr); }
     }
     .cert-card {
       background: var(--card-bg);
@@ -681,11 +691,11 @@
       nav .nav-links.open {
         display: flex; flex-direction: column;
         position: fixed; inset: 0;
-        top: 300px;
-        background: rgba(8,8,8,0.97);
+        top: 0;
+        background: rgba(8,8,8,0.98);
         backdrop-filter: blur(12px);
         align-items: center; justify-content: center;
-        gap: 20px;
+        gap: 25px;
         z-index: 99;
       }
       nav .nav-links.open a { font-size: 1.5rem; color: var(--off-white); background-color: var(--card-bg); }
@@ -706,7 +716,12 @@
     }
     @media (max-width: 600px) {
       .cert-grid { grid-template-columns: 1fr; }
-      .about-stats { grid-template-columns: 1fr 1fr; }
+      .about-stats { grid-template-columns: 1fr; }
       .lang-grid { grid-template-columns: 1fr; }
-      .edu-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .edu-item { flex-direction: column; align-items: flex-start; gap: 15px; padding: 24px; }
+      .hero-title { font-size: clamp(2.5rem, 10vw, 3.5rem); }
+      .hero-cta { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+      header { padding: 12px 20px; }
+      .logo-text { font-size: 1rem; }
     }

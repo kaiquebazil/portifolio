@@ -128,12 +128,16 @@ const translations = {
     'cert-4': 'Mobile and Computer Maintenance',
     'cert-5': 'JavaScript — Programming Logic',
     'cert-6': 'Complete Web Development — 20 Projects',
+    'cert-7': 'Advanced UI Design',
+    'cert-8': 'React Native — Zero to Hero',
     'cert-1-hours': '60 hours · In-person',
     'cert-2-hours': '39 hours · Online',
     'cert-3-hours': 'Online',
     'cert-4-hours': '112 hours · In-person',
     'cert-5-hours': '20 hours · Online',
     'cert-6-hours': 'Online',
+    'cert-7-hours': '30 hours · Online',
+    'cert-8-hours': '45 hours · Online',
     'concluido': '✓ Completed',
     
     // Education section
