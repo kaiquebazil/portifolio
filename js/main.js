@@ -241,61 +241,61 @@ if (heroP && heroP.textContent === '') {
         titulo: "Learn CSS - For Beginners",
         emissor: "Udemy",
         icone: "⚡",
-        linkPdf: "../certificados/learningcss.pdf"
+        linkPdf: "../portifolio/certificados/learningcss.pdf"
       },
       {
         titulo: "Inglês Nível Intermediário",
         emissor: "English Work",
         icone: "📘",
-        linkPdf: "../certificados/c%20(2).pdf"
+        linkPdf: "../portifolio/certificados/c%20(2).pdf"
       },
       {
         titulo: "Inglês Nível Avançado",
         emissor: "English Work",
         icone: "📘",
-        linkPdf: "../certificados/c%20(3).pdf"
+        linkPdf: "../portifolio/certificados/c%20(3).pdf"
       },
       {
         titulo: "Inglês 1",
         emissor: "Plataforma aprenda",
         icone: "📘",
-        linkPdf: "../certificados/PROT_2754720884496551.pdf"
+        linkPdf: "../portifolio/certificados/PROT_2754720884496551.pdf"
       },
       {
         titulo: "Canva: Design Gráfico Descomplicado",
         emissor: "Udemy",
         icone: "🎨",
-        linkPdf: "../certificados/canva.pdf"
+        linkPdf: "../portifolio/certificados/canva.pdf"
       },
       {
         titulo: "Forte Mente - Desenvolvimento Pessoal",
         emissor: "Udemy",
         icone: "📱",
-        linkPdf: "../certificados/fortemente.pdf"
+        linkPdf: "../portifolio/certificados/fortemente.pdf"
       },
       {
         titulo: " CURSO DE CONVERSAÇÃO - CONVERSATION CLUB",
         emissor: "Mais Língua",
         icone: "🔧",
-        linkPdf: "../certificados/ingles.pdf"
+        linkPdf: "../portifolio/certificados/ingles.pdf"
       },
       {
         titulo: "Create Your First Website with HTML, CSS & JavaScript",
         emissor: "Udemy",
         icone: "🖥️",
-        linkPdf: "../certificados/htmlecss.pdf"
+        linkPdf: "../portifolio/certificados/htmlecss.pdf"
       },
       {
         titulo: "HTML, CSS, & JavaScript",
         emissor: "Udemy",
         icone: "🖥️",
-        linkPdf: "../certificados/htmlcssjs.pdf"
+        linkPdf: "../portifolio/certificados/htmlcssjs.pdf"
       },
       {
         titulo: " ZOОМ Masterclass: Grundlagen, Anleitungen und geheime Tricks",
         emissor: "Udemy",
         icone: "✨",
-        linkPdf: "../certificados/zoom.pdf"
+        linkPdf: "../portifolio/certificados/zoom.pdf"
       }
     ];
 
