@@ -30,14 +30,28 @@ window.addEventListener('scroll', () => {
 // Mobile nav
 const toggle = document.getElementById('mobileToggle');
 const navLinks = document.getElementById('navLinks');
-toggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
+
+function toggleMenu() {
+  const isOpen = navLinks.classList.toggle('open');
   toggle.classList.toggle('active');
+  
+  // Prevent scrolling when menu is open
+  if (isOpen) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+}
+
+toggle.addEventListener('click', toggleMenu);
+
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    toggle.classList.remove('active');
+    document.body.style.overflow = '';
+  });
 });
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  navLinks.classList.remove('open');
-  toggle.classList.remove('active');
-}));
 
 // More projects toggle
 const moreProjects = document.getElementById('moreProjects');
