@@ -21,6 +21,8 @@
       line-height: 1.6;
       overflow-x: hidden;
       cursor: none;
+      width: 100%;
+      max-width: 100vw;
     }
 
 
@@ -910,15 +912,16 @@
       nav .nav-links { display: none; }
       nav .nav-links.open {
         display: flex; flex-direction: column;
-        position: fixed; inset: 0;
-        top: 0;
+        position: fixed; left: 0; right: 0; top: 60px; bottom: 0;
         background: rgba(8,8,8,0.98);
         backdrop-filter: blur(12px);
         align-items: center; justify-content: center;
-        gap: 25px;
+        gap: 20px;
         z-index: 99;
+        overflow-y: auto;
+        padding: 40px 24px;
       }
-      nav .nav-links.open a { font-size: 1.5rem; color: var(--off-white); background-color: var(--card-bg); padding: 12px 24px; border-radius: 12px; }
+      nav .nav-links.open a { font-size: 1.1rem; color: var(--off-white); background-color: var(--card-bg); padding: 12px 24px; border-radius: 12px; width: 100%; max-width: 280px; text-align: center; }
       .mobile-toggle { display: flex; }
       section { padding: 70px 24px; }
       .hero-grid { grid-template-columns: 1fr; gap: 50px; }
@@ -950,6 +953,10 @@
       .proj-card-sm .proj-title { font-size: 0.95rem; }
       .section-title { font-size: clamp(1.8rem, 6vw, 2.5rem); }
       .about-text { font-size: 1rem; }
+      nav .nav-links.open a { font-size: 1rem; padding: 10px 20px; max-width: 100%; }
+      .marquee-item { padding: 0 20px; font-size: 0.7rem; }
+      #hero { padding: 80px 16px 40px; }
+      section { padding: 50px 16px; }
       .contact-hero-txt { font-size: clamp(1.5rem, 5vw, 2.5rem); }
       .cert-card { padding: 20px; }
     }
