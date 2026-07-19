@@ -1,4 +1,4 @@
-    :root {
+:root {
       --black: #080808;
       --off-white: #f0ece3;
       --cream: #e8e2d5;
@@ -25,8 +25,6 @@
       max-width: 100vw;
     }
 
-
-
     /* Botão simples para abrir o modal */
     .abrir-modal-btn {
       background: #c8f55a;
@@ -39,7 +37,9 @@
       cursor: pointer;
       font-family: inherit;
       margin: 20px auto;
-      display: flex;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       transition: 0.2s;
       box-shadow: 0 2px 8px rgba(200,245,90,0.2);
     }
@@ -49,7 +49,7 @@
       transform: scale(1.02);
     }
 
-    /* OVERLAY DO MODAL (fundo escuro) */
+    /* OVERLAY DO MODAL */
     .modal-pdf-overlay {
       position: fixed;
       top: 0;
@@ -72,7 +72,6 @@
       opacity: 1;
     }
 
-    /* JANELA DO MODAL - simples e direta */
     .modal-pdf-container {
       background: #111;
       width: 90%;
@@ -88,17 +87,10 @@
     }
 
     @keyframes fadeScale {
-      from {
-        opacity: 0;
-        transform: scale(0.96);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
     }
 
-    /* CABEÇALHO */
     .modal-pdf-header {
       display: flex;
       justify-content: space-between;
@@ -131,14 +123,12 @@
       color: #c8f55a;
     }
 
-    /* LISTA DE PDFs - rolagem interna */
     .lista-pdfs {
       padding: 0.8rem 0.5rem 1.2rem 0.5rem;
       overflow-y: auto;
       max-height: 60vh;
     }
 
-    /* cada item de certificado */
     .pdf-item {
       display: flex;
       align-items: center;
@@ -204,7 +194,6 @@
       border-color: #c8f55a;
     }
 
-    /* rodapé opcional */
     .modal-footer {
       padding: 0.8rem 1.5rem;
       border-top: 1px solid rgba(255,255,255,0.05);
@@ -214,7 +203,6 @@
       background: #0c0c0c;
     }
 
-    /* scroll bonito */
     .lista-pdfs::-webkit-scrollbar {
       width: 5px;
     }
@@ -227,7 +215,6 @@
       border-radius: 10px;
     }
 
-    /* responsivo */
     @media (max-width: 550px) {
       .pdf-item {
         flex-direction: column;
@@ -377,7 +364,6 @@
       border-radius: 2px;
     }
 
-    /* Mobile Toggle Active State */
     .mobile-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .mobile-toggle.active span:nth-child(2) { opacity: 0; }
     .mobile-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
@@ -516,7 +502,6 @@
       transform: rotate(15deg);
     }
 
-    /* Animated circles bg */
     .hero-bg-circle {
       position: absolute;
       border-radius: 50%;
@@ -560,6 +545,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
+      white-space: nowrap;
     }
     .marquee-item::after { content: '✦'; color: var(--accent); font-size: 0.6rem; }
     @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
@@ -663,7 +649,7 @@
       position: relative;
       overflow: hidden;
       transition: all 0.4s;
-      cursor: pointer;
+      cursor: default;
       z-index: 5;
       display: flex;
       flex-direction: column;
@@ -701,6 +687,10 @@
       margin-bottom: 20px;
       max-width: 42ch;
     }
+    .proj-desc strong {
+      color: var(--off-white);
+      font-weight: 600;
+    }
     .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
     .proj-tag {
       font-size: 0.7rem;
@@ -710,7 +700,7 @@
       color: var(--muted);
       letter-spacing: 0.05em;
     }
-    .proj-links { display: flex; gap: 12px; }
+    .proj-links { display: flex; gap: 12px; margin-top: auto; flex-wrap: wrap; }
     .proj-link {
       font-family: 'Syne', sans-serif;
       font-size: 0.75rem;
@@ -1022,6 +1012,7 @@
       #hero { padding: 100px 20px 60px; }
       footer { padding: 24px; flex-direction: column; text-align: center; }
     }
+    
     @media (max-width: 600px) {
       .cert-grid { grid-template-columns: 1fr; }
       .about-stats { grid-template-columns: 1fr; }
@@ -1056,4 +1047,11 @@
       .contact-hero-txt { font-size: clamp(1.8rem, 7vw, 2.8rem); text-align: center; margin: 0 auto 40px; }
       .contact-link-item { padding: 18px 20px; }
       .cert-card { padding: 20px; }
+      
+      .abrir-modal-btn {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+        width: 100%;
+        justify-content: center;
+      }
     }

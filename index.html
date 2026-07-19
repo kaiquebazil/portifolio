@@ -3,12 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kaique Bazil — Dev</title>
-  <meta name="description" content="Desenvolvedor Front End & Mobile — Kaique Bazil">
+  
+  <!-- Título otimizado para SEO -->
+  <title>Kaique Bazil — Portfólio | Desenvolvedor Web & Suporte TI</title>
+  
+  <!-- Meta Description otimizada -->
+  <meta name="description" content="Portfólio de Kaique Bazil, estudante de Análise e Desenvolvimento de Sistemas. Especialista em Desenvolvimento Web, Suporte Técnico, Help Desk e Infraestrutura de TI. Disponível para estágio e oportunidades júnior.">
+  
+  <!-- Keywords para ATS e recrutadores -->
+  <meta name="keywords" content="Kaique Bazil, desenvolvedor web, front-end, suporte técnico, help desk, analista de sistemas, infraestrutura TI, HTML, CSS, JavaScript, Git, GitHub, SQL, banco de dados, estágio TI, desenvolvedor júnior, Petrópolis, RJ">
+  
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Kaique de Souza Bazil">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kaique Bazil — Portfólio | Desenvolvedor Web & Suporte TI">
+  <meta property="og:description" content="Portfólio profissional de Kaique Bazil. Estudante de ADS, desenvolvedor web e especialista em suporte técnico e infraestrutura de TI.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kaiquebazil.github.io/portifolio/">
+  <meta property="og:image" content="https://kaiquebazil.github.io/portifolio/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kaique Bazil — Portfólio | Desenvolvedor Web & Suporte TI">
+  <meta name="twitter:description" content="Portfólio profissional de Kaique Bazil. Estudante de ADS, desenvolvedor web e especialista em suporte técnico e infraestrutura de TI.">
+  <meta name="twitter:image" content="https://kaiquebazil.github.io/portifolio/img/og-image.jpg">
+  
+  <!-- Favicon -->
   <link rel="shortcut icon" href="img/detalhe.svg" type="image/x-icon">
+  <link rel="icon" type="image/svg+xml" href="img/detalhe.svg">
+  <link rel="apple-touch-icon" href="img/detalhe.svg">
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  
+  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
+  
+  <!-- JSON-LD Dados Estruturados -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kaique de Souza Bazil",
+    "jobTitle": "Desenvolvedor Web | Analista de Suporte TI",
+    "url": "https://kaiquebazil.github.io/portifolio/",
+    "sameAs": [
+      "https://github.com/kaiquebazil",
+      "https://www.linkedin.com/in/kaique-bazil-a793ba243/",
+      "https://instagram.com/kaiquebazil"
+    ],
+    "email": "kaiquedesouzabazil@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nova Iguaçu",
+      "addressRegion": "RJ",
+      "addressCountry": "BR"
+    },
+    "knowsAbout": [
+      "Desenvolvimento Web", 
+      "Suporte Técnico", 
+      "Help Desk", 
+      "Infraestrutura de TI",
+      "HTML", 
+      "CSS", 
+      "JavaScript", 
+      "Git", 
+      "GitHub", 
+      "SQL",
+      "Banco de Dados",
+      "Manutenção de Computadores",
+      "Hardware",
+      "Software"
+    ]
+  }
+  </script>
+  
+  <!-- JSON-LD para Site -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Portfólio Kaique Bazil",
+    "url": "https://kaiquebazil.github.io/portifolio/",
+    "description": "Portfólio profissional de Kaique Bazil — Desenvolvedor Web, Suporte Técnico e Infraestrutura de TI",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://kaiquebazil.github.io/portifolio/#contato",
+      "query-input": "required"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -19,9 +107,9 @@
 <!-- HEADER -->
 <header>
   <div class="header-container">
-    <a href="#" class="logo-text">KB<span>.</span></a>
+    <a href="#" class="logo-text" aria-label="Kaique Bazil Portfólio">KB<span>.</span></a>
     
-    <nav id="nav">
+    <nav id="nav" aria-label="Navegação principal">
       <div class="nav-links" id="navLinks">
         <a href="#sobre" class="nav-link-about" data-translate="sobre">Sobre</a>
         <a href="#projetos" class="nav-link-projetos" data-translate="projetos">Projetos</a>
@@ -32,8 +120,8 @@
     </nav>
 
     <div class="header-actions">
-      <button class="lang-btn" id="langBtn">EN</button>
-      <div class="mobile-toggle" id="mobileToggle">
+      <button class="lang-btn" id="langBtn" aria-label="Alternar idioma">EN</button>
+      <div class="mobile-toggle" id="mobileToggle" aria-label="Menu mobile" role="button" tabindex="0">
         <span></span><span></span><span></span>
       </div>
     </div>
@@ -41,14 +129,14 @@
 </header>
 
 <!-- HERO -->
-<section id="hero">
+<section id="hero" aria-labelledby="hero-title">
   <div class="hero-bg-circle hbc1"></div>
   <div class="hero-bg-circle hbc2"></div>
   <div class="hero-grid max-w" style="max-width:1100px; margin:0 auto; width:100%">
     <div>
-      <div class="hero-label" data-translate="hero-label">Disponível para projetos</div>
-      <h1 class="hero-title">Dev<br><em>Web</em><br>& Mobile</h1>
-      <p class="hero-desc" data-translate="hero-desc">Apaixonado por criar experiências digitais que combinam código limpo, design e performance. Baseado em Petrópolis, RJ.</p>
+      <div class="hero-label" data-translate="hero-label">Disponível para oportunidades</div>
+      <h1 class="hero-title" id="hero-title">Dev<br><em>Web</em><br>& Suporte TI</h1>
+      <p class="hero-desc" data-translate="hero-desc">Estudante de Análise e Desenvolvimento de Sistemas, apaixonado por tecnologia, desenvolvimento de software e resolução de problemas. Buscando oportunidades em Desenvolvimento Web, Suporte Técnico, Help Desk e Infraestrutura de TI.</p>
       <div class="hero-cta">
         <a href="#projetos" class="btn-primary" data-translate="btn-primary">Ver Projetos →</a>
         <a href="#contato" class="btn-outline" data-translate="btn-outline">Entrar em Contato</a>
@@ -56,7 +144,7 @@
     </div>
     <div class="hero-photo-wrap">
       <div class="hero-photo-frame">
-        <img src="https://kaiquebazil.github.io/portifolio/img/main2.jpg" alt="Kaique Bazil">
+        <img src="https://kaiquebazil.github.io/portifolio/img/main2.jpg" alt="Kaique Bazil - Desenvolvedor Web e Suporte TI" loading="lazy" decoding="async">
       </div>
       <div class="hero-badge">
         <div class="hero-badge-num">5+</div>
@@ -68,7 +156,7 @@
 </section>
 
 <!-- MARQUEE -->
-<div class="marquee-wrap">
+<div class="marquee-wrap" aria-hidden="true">
   <div class="marquee-track">
     <span class="marquee-item">HTML & CSS</span>
     <span class="marquee-item">JavaScript</span>
@@ -80,6 +168,9 @@
     <span class="marquee-item">jQuery</span>
     <span class="marquee-item">Git & GitHub</span>
     <span class="marquee-item">Responsive Design</span>
+    <span class="marquee-item">Suporte Técnico</span>
+    <span class="marquee-item">Help Desk</span>
+    <span class="marquee-item">Manutenção</span>
     <span class="marquee-item">HTML & CSS</span>
     <span class="marquee-item">JavaScript</span>
     <span class="marquee-item">React Native</span>
@@ -89,25 +180,31 @@
     <span class="marquee-item">jQuery</span>
     <span class="marquee-item">Git & GitHub</span>
     <span class="marquee-item">Responsive Design</span>
+    <span class="marquee-item">Suporte Técnico</span>
+    <span class="marquee-item">Help Desk</span>
+    <span class="marquee-item">Manutenção</span>
   </div>
 </div>
 
 <!-- ABOUT -->
-<section id="sobre">
+<section id="sobre" aria-labelledby="about-title">
   <div class="max-w">
     <div class="section-header fade-up">
       <div>
         <div class="section-num" data-translate="about-section-num">01 — Sobre Mim</div>
-        <h2 class="section-title" data-translate="about-title">Quem<br>sou eu</h2>
+        <h2 class="section-title" id="about-title" data-translate="about-title">Quem<br>sou eu</h2>
       </div>
     </div>
 
     <div class="about-grid">
       <div class="about-text fade-up">
-        <p data-translate="about-p1">Sou um desenvolvedor <strong>Front-End & Mobile</strong> com paixão por criar interfaces funcionais e visualmente atrativas. Atualmente cursando <strong>ADS na USF</strong> e sempre buscando novos desafios.</p>
-        <p data-translate="about-p2">Desenvolvo projetos como <strong>Finance Flex</strong> (gestão financeira), <strong>LinguaFlash</strong> (flashcards multilíngues) e <strong>Kaisui</strong> (app de desenvolvimento pessoal com RPG gamification). Para cada projeto cuido do <strong>UX, UI Design</strong> e implementação.</p>
-        <p data-translate="about-p3">Acredito que bom código e bom design andam juntos — e é isso que busco em cada projeto.</p>
+        <p data-translate="about-p1">Sou <strong>Kaique de Souza Bazil</strong>, estudante do <strong>3º período de Análise e Desenvolvimento de Sistemas na USF</strong>. Apaixonado por tecnologia, desenvolvimento de software e resolução de problemas, busco constantemente novos desafios para aplicar e expandir meus conhecimentos.</p>
+        
+        <p data-translate="about-p2">Atuo como <strong>empreendedor na KBTECHPETROPOLIS</strong>, onde realizo manutenção de computadores, celulares e eletrônicos, desenvolvendo habilidades em <strong>hardware, software e atendimento ao cliente</strong>. Além disso, possuo experiência prática como balconista e entregador, o que fortaleceu minha <strong>comunicação, organização e trabalho em equipe</strong>.</p>
+        
+        <p data-translate="about-p3">Meu <strong>objetivo profissional</strong> é ingressar na área de Tecnologia da Informação, atuando em áreas como <strong>Desenvolvimento Web, Suporte Técnico, Help Desk, Infraestrutura, Análise de Sistemas, Banco de Dados, QA ou Segurança da Informação</strong>. Estou pronto para contribuir com dedicação, aprendizado contínuo e comprometimento em uma empresa que valorize inovação e desenvolvimento profissional.</p>
 
+        <!-- SKILLS / COMPETÊNCIAS -->
         <div class="skills-wrap">
           <div class="skill-category">
             <div class="skill-cat-name" data-translate="skill-frontend">Frontend</div>
@@ -135,7 +232,9 @@
               <span class="skill-tag">Git</span>
               <span class="skill-tag">GitHub</span>
               <span class="skill-tag">VS Code</span>
+              <span class="skill-tag">Claude</span>
               <span class="skill-tag">Chrome DevTools</span>
+              <span class="skill-tag">Pacote Office</span>
               <span class="skill-tag">Expo</span>
               <span class="skill-tag">Android Studio</span>
             </div>
@@ -166,72 +265,77 @@
 </section>
 
 <!-- PROJECTS -->
-<section id="projetos">
+<section id="projetos" aria-labelledby="projects-title">
   <div class="max-w">
     <div class="section-header fade-up">
       <div>
         <div class="section-num" data-translate="projetos-section-num">02 — Projetos</div>
-        <h2 class="section-title" data-translate="projetos-title">Trabalhos<br>recentes</h2>
+        <h2 class="section-title" id="projects-title" data-translate="projetos-title">Trabalhos<br>recentes</h2>
       </div>
     </div>
 
     <div class="projects-grid fade-up">
+      <!-- Projeto 1: Finance Flex -->
       <div class="proj-card">
         <div class="proj-year">2026</div>
         <h3 class="proj-title">Finance Flex</h3>
-        <p class="proj-desc" data-translate="proj-desc-1">Aplicativo web e mobile de gestão financeira pessoal com controle de receitas, despesas, cartões de crédito e calendário de pagamentos.</p>
+        <p class="proj-desc" data-translate="proj-desc-1">Aplicação web e mobile de gestão financeira pessoal com controle de receitas, despesas, cartões de crédito e calendário de pagamentos. <strong>Problema resolvido:</strong> Centralização e simplificação do controle financeiro pessoal.</p>
         <div class="proj-tags">
           <span class="proj-tag">React Native</span>
           <span class="proj-tag">TypeScript</span>
           <span class="proj-tag">Firebase</span>
         </div>
         <div class="proj-links">
-          <a href="https://kaiquebazil.github.io/FinanceFlex/financeflex-plataformas.html" target="_blank" class="proj-link" data-translate="ver-projeto">Ver Projeto <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a>
-          <a href="https://github.com/kaiquebazil/FinanceFlexReact" target="_blank" class="proj-link ghost">GitHub</a>
-               </div>
+          <a href="https://kaiquebazil.github.io/FinanceFlex/financeflex-plataformas.html" target="_blank" rel="noopener noreferrer" class="proj-link" data-translate="ver-projeto">Ver Projeto <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a>
+          <a href="https://github.com/kaiquebazil/FinanceFlexReact" target="_blank" rel="noopener noreferrer" class="proj-link ghost">GitHub</a>
+        </div>
       </div>
+      
+      <!-- Projeto 2: Jaque Psi -->
       <div class="proj-card">
         <div class="proj-year">2025</div>
         <h3 class="proj-title">Jaque Psi</h3>
-        <p class="proj-desc" data-translate="proj-desc-2">Portifólio para a psicóloga Jaque Bach, com foco em terapia online e presencial. (saúde mental, testes cognitivos, teleconsulta e análise filosófica), apresenta depoimentos de pacientes e facilita o agendamento de consultas. A comunicação visual é leve e acolhedora, priorizando a clareza e a conversão.</p>
+        <p class="proj-desc" data-translate="proj-desc-2">Portfólio para psicóloga com foco em terapia online e presencial. <strong>Problema resolvido:</strong> Presença digital profissional para profissionais da saúde mental.</p>
         <div class="proj-tags">
           <span class="proj-tag">HTML</span>
           <span class="proj-tag">CSS</span>
           <span class="proj-tag">JavaScript</span>
         </div>
         <div class="proj-links">
-          <a href="https://kaiquebazil.github.io/FinanceFlex" target="_blank" class="proj-link" data-translate="ver-projeto">Ver Projeto <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a>
-          <a href="https://github.com/kaiquebazil/FinanceFlex" target="_blank" class="proj-link ghost">GitHub</a>
+          <a href="https://kaiquebazil.github.io/FinanceFlex" target="_blank" rel="noopener noreferrer" class="proj-link" data-translate="ver-projeto">Ver Projeto <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a>
+          <a href="https://github.com/kaiquebazil/FinanceFlex" target="_blank" rel="noopener noreferrer" class="proj-link ghost">GitHub</a>
         </div>
       </div>
 
+      <!-- Projeto 3: LinguaFlash -->
       <div class="proj-card">
         <div class="proj-year">2026</div>
         <h3 class="proj-title">LinguaFlash</h3>
-        <p class="proj-desc" data-translate="proj-desc-3">Flashcards multilíngues com suporte a 8 idiomas e 122 frases em 14 categorias. Interface dark editorial com foco em imersão.</p>
+        <p class="proj-desc" data-translate="proj-desc-3">Flashcards multilíngues com suporte a 8 idiomas e 122 frases em 14 categorias. <strong>Problema resolvido:</strong> Aprendizado de idiomas de forma imersiva e interativa.</p>
         <div class="proj-tags">
           <span class="proj-tag">HTML</span>
           <span class="proj-tag">CSS</span>
           <span class="proj-tag">JavaScript</span>
         </div>
         <div class="proj-links">
-          <a href="https://kaiquebazil.github.io/LinguaFlash" target="_blank" class="proj-link" data-translate="ver-projeto">Ver Projeto <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a>
-          <a href="https://github.com/kaiquebazil/LinguaFlash" target="_blank" class="proj-link ghost">GitHub</a>
+          <a href="https://kaiquebazil.github.io/LinguaFlash" target="_blank" rel="noopener noreferrer" class="proj-link" data-translate="ver-projeto">Ver Projeto <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a>
+          <a href="https://github.com/kaiquebazil/LinguaFlash" target="_blank" rel="noopener noreferrer" class="proj-link ghost">GitHub</a>
         </div>
       </div>
 
+      <!-- Projeto 4: Kaisui -->
       <div class="proj-card">
         <div class="proj-year">2026</div>
         <h3 class="proj-title">Kaisui</h3>
-        <p class="proj-desc" data-translate="proj-desc-4">App de desenvolvimento pessoal com sistema de Alter-Ego, RPG gamification, rastreamento de treinos e chat AI integrado.</p>
+        <p class="proj-desc" data-translate="proj-desc-4">App de desenvolvimento pessoal com sistema de Alter-Ego, gamificação e chat integrado. <strong>Problema resolvido:</strong> Motivação e engajamento em hábitos saudáveis através de gamificação.</p>
         <div class="proj-tags">
           <span class="proj-tag">React Native</span>
           <span class="proj-tag">UI/UX</span>
           <span class="proj-tag">AI</span>
         </div>
         <div class="proj-links">
-          <a href="https://kaiquebazil.github.io/KaisuiFull/" target="_blank" class="proj-link" data-translate="ver-projeto">Ver Projeto <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a>
-          <a href="https://github.com/kaiquebazil/KaisuiFull" target="_blank" class="proj-link ghost">GitHub</a>
+          <a href="https://kaiquebazil.github.io/KaisuiFull/" target="_blank" rel="noopener noreferrer" class="proj-link" data-translate="ver-projeto">Ver Projeto <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a>
+          <a href="https://github.com/kaiquebazil/KaisuiFull" target="_blank" rel="noopener noreferrer" class="proj-link ghost">GitHub</a>
         </div>
       </div>
     </div>
@@ -242,58 +346,58 @@
         <div class="proj-card-sm">
           <div class="proj-year">2025</div>
           <h3 class="proj-title">Animais Fantásticos</h3>
-          <p class="proj-desc" data-translate="proj-desc-5">Galeria interativa com animações e navegação intuitiva. Projeto do curso JavaScript ES6 da Origamid.</p>
+          <p class="proj-desc" data-translate="proj-desc-5">Galeria interativa com animações e navegação intuitiva. <strong>Problema resolvido:</strong> Apresentação visual dinâmica de conteúdo. <strong>Papel:</strong> Desenvolvimento Front-end.</p>
           <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
-          <div class="proj-links"><a href="https://kaiqueprog.github.io/animaisfantasticos" target="_blank" class="proj-link" data-translate="ver-projeto">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
+          <div class="proj-links"><a href="https://kaiqueprog.github.io/animaisfantasticos" target="_blank" rel="noopener noreferrer" class="proj-link" data-translate="ver-projeto">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
         </div>
         <div class="proj-card-sm">
           <div class="proj-year">2024</div>
           <h3 class="proj-title">Bikcraft</h3>
-          <p class="proj-desc" data-translate="proj-desc-6">Site institucional para empresa fictícia de bicicletas com catálogo, orçamentos e layout responsivo.</p>
+          <p class="proj-desc" data-translate="proj-desc-6">Site institucional para empresa fictícia de bicicletas. <strong>Problema resolvido:</strong> Presença digital profissional para negócios locais. <strong>Papel:</strong> Desenvolvimento Front-end.</p>
           <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
-          <div class="proj-links"><a href="https://kaiqueprog.github.io/bikcraft" target="_blank" class="proj-link" data-translate="ver-projeto">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
+          <div class="proj-links"><a href="https://kaiqueprog.github.io/bikcraft" target="_blank" rel="noopener noreferrer" class="proj-link" data-translate="ver-projeto">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
         </div>
         <div class="proj-card-sm">
           <div class="proj-year">2023</div>
           <h3 class="proj-title">Techmax</h3>
-          <p class="proj-desc" data-translate="proj-desc-8">Loja fictícia para divulgação de produtos e serviços de tech, desenvolvida durante curso de manutenção.</p>
+          <p class="proj-desc" data-translate="proj-desc-8">Loja fictícia para divulgação de produtos e serviços de tecnologia. <strong>Problema resolvido:</strong> Vitrine digital para lojas de tecnologia. <strong>Papel:</strong> Desenvolvimento Front-end.</p>
           <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
-          <div class="proj-links"><a href="https://kaiqueprog.github.io/tm" target="_blank" class="proj-link" data-translate="ver-projeto">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
+          <div class="proj-links"><a href="https://kaiqueprog.github.io/tm" target="_blank" rel="noopener noreferrer" class="proj-link" data-translate="ver-projeto">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
         </div>
         <div class="proj-card-sm">
           <div class="proj-year">2022</div>
           <h3 class="proj-title">Barber Shop</h3>
-          <p class="proj-desc" data-translate="proj-desc-9">Site de barbearia com tabela de preços, galeria e equipe. Usa Bootstrap e jQuery.</p>
+          <p class="proj-desc" data-translate="proj-desc-9">Site de barbearia com tabela de preços e galeria. <strong>Problema resolvido:</strong> Presença digital para pequenos negócios. <strong>Papel:</strong> Desenvolvimento Front-end.</p>
           <div class="proj-tags"><span class="proj-tag">Bootstrap</span><span class="proj-tag">jQuery</span></div>
-          <div class="proj-links"><a href="https://kaiqueprog.github.io/bs" target="_blank" class="proj-link" data-translate="ver-projeto">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
+          <div class="proj-links"><a href="https://kaiqueprog.github.io/bs" target="_blank" rel="noopener noreferrer" class="proj-link" data-translate="ver-projeto">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
         </div>
         <div class="proj-card-sm">
           <div class="proj-year">2022</div>
           <h3 class="proj-title">Jhennifer Modelo</h3>
-          <p class="proj-desc" data-translate="proj-desc-10">Portfólio online para modelo profissional com galeria e design elegante e minimalista.</p>
+          <p class="proj-desc" data-translate="proj-desc-10">Portfólio online para modelo profissional. <strong>Problema resolvido:</strong> Portfólio digital elegante para profissionais criativos. <strong>Papel:</strong> Desenvolvimento Front-end.</p>
           <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div>
-          <div class="proj-links"><a href="https://kaiqueprog.github.io/JheniferModelo" target="_blank" class="proj-link" data-translate="ver-projeto">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
+          <div class="proj-links"><a href="https://kaiqueprog.github.io/JheniferModelo" target="_blank" rel="noopener noreferrer" class="proj-link" data-translate="ver-projeto">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
         </div>
         <div class="proj-card-sm">
           <div class="proj-year">2021</div>
           <h3 class="proj-title">Calculadora</h3>
-          <p class="proj-desc" data-translate="proj-desc-11">Calculadora web com operações básicas e avançadas, memória, histórico e modo claro/escuro.</p>
+          <p class="proj-desc" data-translate="proj-desc-11">Calculadora web com operações básicas e avançadas. <strong>Problema resolvido:</strong> Ferramenta prática para cálculos rápidos. <strong>Papel:</strong> Desenvolvimento Front-end.</p>
           <div class="proj-tags"><span class="proj-tag">Bootstrap</span><span class="proj-tag">JavaScript</span></div>
-          <div class="proj-links"><a href="https://kaiqueprog.github.io/Calculadora" target="_blank" class="proj-link" data-translate="ver-projeto">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
+          <div class="proj-links"><a href="https://kaiqueprog.github.io/Calculadora" target="_blank" rel="noopener noreferrer" class="proj-link" data-translate="ver-projeto">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
         </div>
         <div class="proj-card-sm">
           <div class="proj-year">2021</div>
           <h3 class="proj-title">Uau Tv</h3>
-          <p class="proj-desc" data-translate="proj-desc-12">Plataforma de streaming com catálogo, player personalizado e categorias com integração de API.</p>
+          <p class="proj-desc" data-translate="proj-desc-12">Plataforma de streaming com catálogo e player personalizado. <strong>Problema resolvido:</strong> Plataforma de conteúdo digital personalizada. <strong>Papel:</strong> Desenvolvimento Front-end.</p>
           <div class="proj-tags"><span class="proj-tag">Bootstrap</span><span class="proj-tag">jQuery</span></div>
-          <div class="proj-links"><a href="https://kaiqueprog.github.io/UauTv" target="_blank" class="proj-link" data-translate="ver-projeto">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
+          <div class="proj-links"><a href="https://kaiqueprog.github.io/UauTv" target="_blank" rel="noopener noreferrer" class="proj-link" data-translate="ver-projeto">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
         </div>
         <div class="proj-card-sm">
           <div class="proj-year">2020</div>
           <h3 class="proj-title">SK Orçamento</h3>
-          <p class="proj-desc" data-translate="proj-desc-13">Gerenciador de despesas completo baseado no curso Desenvolvimento Web Completo da Udemy.</p>
+          <p class="proj-desc" data-translate="proj-desc-13">Gerenciador de despesas completo. <strong>Problema resolvido:</strong> Controle financeiro simples e eficiente. <strong>Papel:</strong> Desenvolvimento Front-end.</p>
           <div class="proj-tags"><span class="proj-tag">Bootstrap</span><span class="proj-tag">jQuery</span></div>
-          <div class="proj-links"><a href="https://kaiqueprog.github.io/skorcamento" target="_blank" class="proj-link" data-translate="ver-projeto">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
+          <div class="proj-links"><a href="https://kaiqueprog.github.io/skorcamento" target="_blank" rel="noopener noreferrer" class="proj-link" data-translate="ver-projeto">Ver <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11L11 1M11 1H4M11 1v7"/></svg></a></div>
         </div>
       </div>
       <button class="toggle-more-btn" id="toggleMore">
@@ -305,12 +409,12 @@
 </section>
 
 <!-- CERTIFICATES -->
-<section id="certificados">
+<section id="certificados" aria-labelledby="certs-title">
   <div class="max-w">
     <div class="section-header fade-up">
       <div>
         <div class="section-num" data-translate="certificados-section-num">03 — Certificados</div>
-        <h2 class="section-title" data-translate="certificados-title">Cursos &<br>Certificados</h2>
+        <h2 class="section-title" id="certs-title" data-translate="certificados-title">Cursos &<br>Certificados</h2>
       </div>
     </div>
 
@@ -374,34 +478,36 @@
     </div>
   </div>
 
-  <!-- Botão simples que abre o modal (pode colocar em qualquer lugar do seu site) -->
-  <button class="abrir-modal-btn" id="btnAbrirModal">📄 Ver Certificados em PDF</button>
+  <!-- Botão para certificados em PDF -->
+  <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 20px;">
+    <button class="abrir-modal-btn" id="btnAbrirModal">📄 Ver Certificados em PDF</button>
+    <a href="Currículo%20TI.pdf" target="_blank" rel="noopener noreferrer" class="abrir-modal-btn" style="background: #222; color: var(--accent); border: 1px solid var(--accent); text-decoration: none;">
+      📄 Baixar Currículo
+    </a>
+  </div>
 
-  <!-- Estrutura do modal (bem simples) -->
+  <!-- Modal PDF -->
   <div id="modalPdfOverlay" class="modal-pdf-overlay">
-    <div class="modal-pdf-container">
+    <div class="modal-pdf-container" role="dialog" aria-label="Certificados em PDF">
       <div class="modal-pdf-header">
         <h3>📚 Cursos & Certificados (PDF)</h3>
-        <button class="fechar-modal" id="btnFecharModal">✕</button>
+        <button class="fechar-modal" id="btnFecharModal" aria-label="Fechar">✕</button>
       </div>
-
       <div class="lista-pdfs" id="listaPdfs">
-        <!-- Todos os PDFs serão inseridos aqui via JavaScript (simples e editável) -->
+        <!-- Preenchido via JS -->
       </div>
-      <div class="modal-footer">
-        clique em qualquer PDF para visualizar ou baixar
-      </div>
+      <div class="modal-footer">Clique em qualquer PDF para visualizar ou baixar</div>
     </div>
   </div>
 </section>
 
 <!-- EDUCATION -->
-<section id="formacao">
+<section id="formacao" aria-labelledby="edu-title">
   <div class="max-w">
     <div class="section-header fade-up">
       <div>
         <div class="section-num" data-translate="formacao-section-num">04 — Formação</div>
-        <h2 class="section-title" data-translate="formacao-title">Minha<br>formação</h2>
+        <h2 class="section-title" id="edu-title" data-translate="formacao-title">Minha<br>formação</h2>
       </div>
     </div>
 
@@ -440,6 +546,7 @@
       </div>
     </div>
 
+    <!-- LANGUAGES -->
     <div class="lang-section fade-up">
       <div class="section-num" style="margin-bottom:20px" data-translate="idiomas">Idiomas</div>
       <div class="lang-grid">
@@ -454,7 +561,7 @@
           <div class="lang-flag">🇺🇸</div>
           <div>
             <div class="lang-name" data-translate="lang-en">Inglês</div>
-            <div class="lang-level" data-translate="lang-en-level">Intermediário</div>
+            <div class="lang-level" data-translate="lang-en-level">Intermediário (Conversação)</div>
           </div>
         </div>
         <div class="lang-item">
@@ -470,44 +577,44 @@
 </section>
 
 <!-- CONTACT -->
-<section id="contato">
+<section id="contato" aria-labelledby="contact-title">
   <div class="max-w">
     <div class="section-num fade-up" data-translate="contato-section-num">05 — Contato</div>
-    <h2 class="contact-hero-txt fade-up" data-translate="contact-hero">Vamos criar algo <em>incrível</em> juntos?</h2>
+    <h2 class="contact-hero-txt fade-up" id="contact-title" data-translate="contact-hero">Vamos criar algo <em>incrível</em> juntos?</h2>
 
     <div class="contact-links fade-up">
-      <a href="mailto:kaiquedesouzabazil@gmail.com" class="contact-link-item">
+      <a href="mailto:kaiquedesouzabazil@gmail.com" class="contact-link-item" aria-label="Enviar e-mail">
         <div>
           <div class="contact-platform">Email</div>
           <div class="contact-handle">kaiquedesouzabazil@gmail.com</div>
         </div>
         <span class="arrow-ic">↗</span>
       </a>
-      <a href="https://instagram.com/kaiquebazil" target="_blank" class="contact-link-item">
-        <div>
-          <div class="contact-platform">Instagram</div>
-          <div class="contact-handle">@kaiquebazil</div>
-        </div>
-        <span class="arrow-ic">↗</span>
-      </a>
-      <a href="https://wa.me/5521977297049" target="_blank" class="contact-link-item">
+      <a href="https://wa.me/5521977297049" target="_blank" rel="noopener noreferrer" class="contact-link-item" aria-label="Enviar mensagem no WhatsApp">
         <div>
           <div class="contact-platform">WhatsApp</div>
           <div class="contact-handle" data-translate="whatsapp-msg">Enviar mensagem</div>
         </div>
         <span class="arrow-ic">↗</span>
       </a>
-      <a href="https://github.com/kaiquebazil" target="_blank" class="contact-link-item">
+      <a href="https://github.com/kaiquebazil" target="_blank" rel="noopener noreferrer" class="contact-link-item" aria-label="GitHub">
         <div>
           <div class="contact-platform">GitHub</div>
-          <div class="contact-handle">kaiquebazil</div>
+          <div class="contact-handle">github.com/kaiquebazil</div>
         </div>
         <span class="arrow-ic">↗</span>
       </a>
-      <a href="https://www.linkedin.com/in/kaique-bazil-a793ba243/" target="_blank" class="contact-link-item">
+      <a href="https://www.linkedin.com/in/kaique-bazil-a793ba243/" target="_blank" rel="noopener noreferrer" class="contact-link-item" aria-label="LinkedIn">
         <div>
           <div class="contact-platform">LinkedIn</div>
-          <div class="contact-handle">kaique-bazil-a793ba243/</div>
+          <div class="contact-handle">linkedin.com/in/kaique-bazil</div>
+        </div>
+        <span class="arrow-ic">↗</span>
+      </a>
+      <a href="https://instagram.com/kaiquebazil" target="_blank" rel="noopener noreferrer" class="contact-link-item" aria-label="Instagram">
+        <div>
+          <div class="contact-platform">Instagram</div>
+          <div class="contact-handle">@kaiquebazil</div>
         </div>
         <span class="arrow-ic">↗</span>
       </a>
@@ -519,9 +626,9 @@
 <footer>
   <div class="footer-brand">KB<span>.</span></div>
   <p data-translate="footer-rights">© 2026 Kaique Bazil — Alguns direitos reservados.</p>
-  <p data-translate="footer-location">Petrópolis, RJ 🇧🇷</p>
+  <p data-translate="footer-location">Nova Iguaçu, RJ 🇧🇷</p>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>

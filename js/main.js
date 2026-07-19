@@ -1,108 +1,166 @@
-// Custom cursor
+// ============================================================
+// CUSTOM CURSOR - Otimizado com throttle
+// ============================================================
 const cur = document.getElementById('cur');
 const curF = document.getElementById('curF');
 let mx = 0, my = 0, fx = 0, fy = 0;
+let cursorFrameId = null;
+
+// Throttle para mousemove - melhora performance
 document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
+  mx = e.clientX; 
+  my = e.clientY;
   cur.style.left = mx - 5 + 'px';
   cur.style.top = my - 5 + 'px';
-});
+}, { passive: true });
+
 function followCursor() {
   fx += (mx - fx) * 0.12;
   fy += (my - fy) * 0.12;
   curF.style.left = fx - 18 + 'px';
   curF.style.top = fy - 18 + 'px';
-  requestAnimationFrame(followCursor);
+  cursorFrameId = requestAnimationFrame(followCursor);
 }
 followCursor();
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => { cur.style.transform = 'scale(2)'; curF.style.transform = 'scale(1.5)'; });
-  el.addEventListener('mouseleave', () => { cur.style.transform = 'scale(1)'; curF.style.transform = 'scale(1)'; });
-});
 
-// Scroll progress
+// ============================================================
+// CURSOR HOVER EFFECTS - Com event delegation
+// ============================================================
+document.addEventListener('mouseenter', (e) => {
+  const target = e.target.closest('a, button, .proj-card, .cert-card, .edu-item, .contact-link-item');
+  if (target) {
+    cur.style.transform = 'scale(2)';
+    curF.style.transform = 'scale(1.5)';
+  }
+}, true);
+
+document.addEventListener('mouseleave', (e) => {
+  const target = e.target.closest('a, button, .proj-card, .cert-card, .edu-item, .contact-link-item');
+  if (target) {
+    cur.style.transform = 'scale(1)';
+    curF.style.transform = 'scale(1)';
+  }
+}, true);
+
+// ============================================================
+// SCROLL PROGRESS - Otimizado com requestAnimationFrame
+// ============================================================
 const scrollLine = document.getElementById('scrollLine');
-window.addEventListener('scroll', () => {
+let scrollFrameId = null;
+
+function updateScrollProgress() {
   const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
   scrollLine.style.width = pct + '%';
-});
+  scrollFrameId = requestAnimationFrame(updateScrollProgress);
+}
 
-// Mobile nav
+window.addEventListener('scroll', () => {
+  if (scrollFrameId) cancelAnimationFrame(scrollFrameId);
+  scrollFrameId = requestAnimationFrame(updateScrollProgress);
+}, { passive: true });
+
+// ============================================================
+// MOBILE NAV - Com suporte a teclado (acessibilidade)
+// ============================================================
 const toggle = document.getElementById('mobileToggle');
 const navLinks = document.getElementById('navLinks');
 
 function toggleMenu() {
   const isOpen = navLinks.classList.toggle('open');
   toggle.classList.toggle('active');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
   
-  // Prevent scrolling when menu is open
+  // Acessibilidade: informar estado do menu
+  toggle.setAttribute('aria-expanded', isOpen);
+  
+  // Focar primeiro link quando abrir
   if (isOpen) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = '';
+    setTimeout(() => {
+      const firstLink = navLinks.querySelector('a');
+      if (firstLink) firstLink.focus();
+    }, 100);
   }
 }
 
 toggle.addEventListener('click', toggleMenu);
 
+// Suporte a teclado (Enter/Space)
+toggle.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    toggleMenu();
+  }
+});
+
 navLinks.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => {
     navLinks.classList.remove('open');
     toggle.classList.remove('active');
+    toggle.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   });
 });
 
-// More projects toggle
+// ============================================================
+// MORE PROJECTS TOGGLE
+// ============================================================
 const moreProjects = document.getElementById('moreProjects');
 const toggleMore = document.getElementById('toggleMore');
 const toggleMoreTxt = document.getElementById('toggleMoreTxt');
-toggleMore.addEventListener('click', () => {
+
+function toggleMoreProjects() {
   const isOpen = moreProjects.classList.toggle('open');
+  toggleMore.classList.toggle('open', isOpen);
+  
   if (toggleMoreTxt) {
+    const lang = document.documentElement.lang || 'pt';
     if (lang === 'pt') {
       toggleMoreTxt.textContent = isOpen ? 'Ver menos' : 'Ver mais projetos';
     } else {
       toggleMoreTxt.textContent = isOpen ? 'Show less' : 'View more projects';
     }
   }
-  toggleMore.classList.toggle('open', isOpen);
-});
+}
 
-// Intersection observer fade-up
+toggleMore.addEventListener('click', toggleMoreProjects);
+
+// ============================================================
+// INTERSECTION OBSERVER - FADE UP (com fallback)
+// ============================================================
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-}, { threshold: 0.08 });
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-// Language switcher - COMPLETE TRANSLATION
+// ============================================================
+// LANGUAGE SWITCHER
+// ============================================================
 let lang = 'pt';
 const langBtn = document.getElementById('langBtn');
 
-// Complete translations dictionary
 const translations = {
   en: {
-    // Navigation
     'sobre': 'About',
     'projetos': 'Projects',
     'certificados': 'Certificates',
     'formacao': 'Education',
     'contato': 'Contact',
-    
-    // Hero section
-    'hero-label': 'Available for projects',
-    'hero-desc': 'Passionate about creating digital experiences that combine clean code, design and performance. Based in Petrópolis, RJ.',
+    'hero-label': 'Available for opportunities',
+    'hero-desc': 'Systems Analysis and Development student, passionate about technology, software development and problem solving. Seeking opportunities in Web Development, Technical Support, Help Desk and IT Infrastructure.',
     'btn-primary': 'View Projects →',
     'btn-outline': 'Get in touch',
     'hero-badge-txt': 'Years coding',
     'hero-badge2': 'Open to Work ✦',
-    
-    // About section
     'about-section-num': '01 — About Me',
     'about-title': 'Who<br>I am',
-    'about-p1': 'I am a <strong>Front-End & Mobile</strong> developer passionate about creating functional and visually appealing interfaces. Currently studying <strong>ADS at USF</strong> and always looking for new challenges.',
-    'about-p2': 'I develop projects like <strong>Finance Flex</strong> (financial management), <strong>LinguaFlash</strong> (multilingual flashcards), and <strong>Kaisui</strong> (personal development app with RPG gamification). For each project, I handle <strong>UX, UI Design</strong>, and implementation.',
-    'about-p3': 'I believe good code and good design go hand in hand — and that\'s what I strive for in every project.',
+    'about-p1': 'I am <strong>Kaique de Souza Bazil</strong>, a <strong>Systems Analysis and Development</strong> student at USF. Passionate about technology, software development and problem solving, I constantly seek new challenges to apply and expand my knowledge.',
+    'about-p2': 'I work as an <strong>entrepreneur at KBTECHPETROPOLIS</strong>, performing computer, cell phone and electronics maintenance, developing skills in <strong>hardware, software and customer service</strong>. I also have practical experience as a sales clerk and delivery driver, which strengthened my <strong>communication, organization and teamwork</strong>.',
+    'about-p3': 'My <strong>professional goal</strong> is to enter the Information Technology field, working in areas such as <strong>Web Development, Technical Support, Help Desk, Infrastructure, Systems Analysis, Databases, QA or Information Security</strong>. I am ready to contribute with dedication, continuous learning and commitment to a company that values innovation and professional development.',
     'skill-frontend': 'Frontend',
     'skill-mobile': 'Mobile & Design',
     'skill-tools': 'Tools',
@@ -110,30 +168,23 @@ const translations = {
     'stat-experiencia': 'Years of experience',
     'stat-horas': 'Hours of courses',
     'stat-idiomas': 'Languages',
-    
-    // Projects section
     'projetos-section-num': '02 — Projects',
     'projetos-title': 'Recent<br>work',
     'ver-projeto': 'View Project',
     'ver-mais-projetos': 'View more projects',
     'ver-menos': 'Show less',
-    
-    // Project descriptions
-    'proj-desc-1': 'Personal financial management web app with income, expense, credit card control, and payment calendar.',
-    'proj-desc-2': 'Personal financial management web app with income, expense, credit card control, and payment calendar.',
-    'proj-desc-3': 'Multilingual flashcards supporting 8 languages and 122 phrases in 14 categories. Dark editorial interface focused on immersion.',
-    'proj-desc-4': 'Personal development app with Alter-Ego system, RPG gamification, workout tracking, and integrated AI chat.',
-    'proj-desc-5': 'Interactive gallery with animations and intuitive navigation. Project from Origamid\'s JavaScript ES6 course.',
-    'proj-desc-6': 'Corporate website for a fictional bicycle company with catalog, quotes, and responsive layout.',
-    'proj-desc-7': 'Collection of college activities demonstrating practical application of programming knowledge.',
-    'proj-desc-8': 'Fictional store promoting tech products and services, developed during a maintenance course.',
-    'proj-desc-9': 'Barber shop website with price list, gallery, and team section. Uses Bootstrap and jQuery.',
-    'proj-desc-10': 'Online portfolio for a professional model with gallery and elegant minimalist design.',
-    'proj-desc-11': 'Web calculator with basic and advanced operations, memory, history, and light/dark mode.',
-    'proj-desc-12': 'Streaming platform with catalog, custom player, and categories with API integration.',
-    'proj-desc-13': 'Complete expense manager based on Udemy\'s Complete Web Development course.',
-    
-    // Certificates section
+    'proj-desc-1': 'Web and mobile personal finance management application with income, expense, credit card and payment calendar control. <strong>Problem solved:</strong> Centralization and simplification of personal financial control.',
+    'proj-desc-2': 'Portfolio for a psychologist focused on online and in-person therapy. <strong>Problem solved:</strong> Professional digital presence for mental health professionals.',
+    'proj-desc-3': 'Multilingual flashcards supporting 8 languages and 122 phrases in 14 categories. <strong>Problem solved:</strong> Immersive and interactive language learning.',
+    'proj-desc-4': 'Personal development app with Alter-Ego system, gamification and integrated chat. <strong>Problem solved:</strong> Motivation and engagement in healthy habits through gamification.',
+    'proj-desc-5': 'Interactive gallery with animations and intuitive navigation. <strong>Problem solved:</strong> Dynamic visual content presentation. <strong>Role:</strong> Front-end Development.',
+    'proj-desc-6': 'Corporate website for a fictional bicycle company. <strong>Problem solved:</strong> Professional digital presence for local businesses. <strong>Role:</strong> Front-end Development.',
+    'proj-desc-8': 'Fictional store promoting technology products and services. <strong>Problem solved:</strong> Digital storefront for tech stores. <strong>Role:</strong> Front-end Development.',
+    'proj-desc-9': 'Barber shop website with price list and gallery. <strong>Problem solved:</strong> Digital presence for small businesses. <strong>Role:</strong> Front-end Development.',
+    'proj-desc-10': 'Online portfolio for a professional model. <strong>Problem solved:</strong> Elegant digital portfolio for creative professionals. <strong>Role:</strong> Front-end Development.',
+    'proj-desc-11': 'Web calculator with basic and advanced operations. <strong>Problem solved:</strong> Practical tool for quick calculations. <strong>Role:</strong> Front-end Development.',
+    'proj-desc-12': 'Streaming platform with catalog and custom player. <strong>Problem solved:</strong> Custom digital content platform. <strong>Role:</strong> Front-end Development.',
+    'proj-desc-13': 'Complete expense manager. <strong>Problem solved:</strong> Simple and efficient financial control. <strong>Role:</strong> Front-end Development.',
     'certificados-section-num': '03 — Certificates',
     'certificados-title': 'Courses &<br>Certificates',
     'cert-1': 'Computer Programming',
@@ -153,8 +204,6 @@ const translations = {
     'cert-7-hours': '30 hours · Online',
     'cert-8-hours': '45 hours · Online',
     'concluido': '✓ Completed',
-    
-    // Education section
     'formacao-section-num': '04 — Education',
     'formacao-title': 'My<br>education',
     'edu-1': 'Systems Analysis and Development',
@@ -163,53 +212,38 @@ const translations = {
     'edu-3': 'Complete JavaScript ES6+',
     'edu-4': 'Mobile and Computer Maintenance',
     'cursando': 'In progress',
-    
-    // Languages section
     'idiomas': 'Languages',
     'lang-pt': 'Portuguese',
     'lang-pt-level': 'Native',
     'lang-en': 'English',
-    'lang-en-level': 'Intermediate',
+    'lang-en-level': 'Intermediate (Conversation)',
     'lang-es': 'Spanish',
     'lang-es-level': 'Basic',
-    
-    // Contact section
     'contato-section-num': '05 — Contact',
     'contact-hero': 'Let\'s create something <em>incredible</em> together?',
     'whatsapp-msg': 'Send message',
-    
-    // Footer
     'footer-rights': '© 2026 Kaique Bazil — Some rights reserved.',
-    'footer-location': 'Petrópolis, RJ 🇧🇷'
+    'footer-location': 'Nova Iguaçu, RJ 🇧🇷'
   }
 };
 
-// Function to apply translations
 function applyTranslations() {
   if (lang !== 'en') return;
   
-  // Update all elements with data-translate attribute
   document.querySelectorAll('[data-translate]').forEach(element => {
     const key = element.getAttribute('data-translate');
     if (translations.en[key]) {
-      if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+      const htmlKeys = ['about-title', 'projetos-title', 'certificados-title', 'formacao-title', 'contact-hero', 'about-p1', 'about-p2', 'about-p3', 'proj-desc-1', 'proj-desc-2', 'proj-desc-3', 'proj-desc-4', 'proj-desc-5', 'proj-desc-6', 'proj-desc-8', 'proj-desc-9', 'proj-desc-10', 'proj-desc-11', 'proj-desc-12', 'proj-desc-13'];
+      if (htmlKeys.includes(key)) {
+        element.innerHTML = translations.en[key];
+      } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
         element.placeholder = translations.en[key];
-      } else if (element.tagName === 'IMG') {
-        element.alt = translations.en[key];
       } else {
-        // Preserve HTML structure for elements that contain HTML
-        if (key === 'about-title' || key === 'projetos-title' || key === 'certificados-title' || 
-            key === 'formacao-title' || key === 'contact-hero' || key === 'about-p1' || 
-            key === 'about-p2' || key === 'about-p3') {
-          element.innerHTML = translations.en[key];
-        } else {
-          element.textContent = translations.en[key];
-        }
+        element.textContent = translations.en[key];
       }
     }
   });
   
-  // Update toggle more button text based on current state
   const isOpen = moreProjects.classList.contains('open');
   const toggleMoreTxtSpan = document.getElementById('toggleMoreTxt');
   if (toggleMoreTxtSpan) {
@@ -217,182 +251,169 @@ function applyTranslations() {
   }
 }
 
-// Language switcher event
 langBtn.addEventListener('click', () => {
   lang = lang === 'pt' ? 'en' : 'pt';
   langBtn.textContent = lang === 'pt' ? 'EN' : 'PT';
+  document.documentElement.lang = lang;
   
   if (lang === 'en') {
-    document.title = 'Kaique Bazil — Dev';
+    document.title = 'Kaique Bazil — Portfolio | Web Developer & IT Support';
     applyTranslations();
   } else {
     location.reload();
   }
 });
 
-// Typewriter for hero description (only on initial load in Portuguese)
+// ============================================================
+// TYPEWRITER - Apenas no carregamento inicial
+// ============================================================
 const heroP = document.querySelector('.hero-desc');
-if (heroP && heroP.textContent === '') {
-  const origText = 'Apaixonado por criar experiências digitais que combinam código limpo, design e performance. Baseado em Petrópolis, RJ.';
-  heroP.textContent = '';
-  let i = 0;
-  function type() {
-    if (i < origText.length) {
-      heroP.textContent += origText[i++];
-      setTimeout(type, 18);
+if (heroP) {
+  const storedText = heroP.textContent.trim();
+  if (!storedText || storedText === '') {
+    const origText = 'Estudante de Análise e Desenvolvimento de Sistemas, apaixonado por tecnologia, desenvolvimento de software e resolução de problemas. Buscando oportunidades em Desenvolvimento Web, Suporte Técnico, Help Desk e Infraestrutura de TI.';
+    heroP.textContent = '';
+    let i = 0;
+    function type() {
+      if (i < origText.length) {
+        heroP.textContent += origText[i++];
+        setTimeout(type, 18);
+      }
     }
+    window.addEventListener('load', type);
   }
-  window.addEventListener('load', type);
 }
 
 // ============================================================
-    // LISTA DE CERTIFICADOS EM PDF (vários exemplos reais e simulados)
-    // Você pode adicionar, remover ou trocar os links facilmente.
-    // Basta editar este array.
-    // ============================================================
-    const certificadosPdf = [
-      {
-        titulo: "Learn CSS - For Beginners",
-        emissor: "Udemy",
-        icone: "⚡",
-        linkPdf: "../portifolio/certificados/learningcss.pdf"
-      },
-      {
-        titulo: "Inglês Nível Intermediário",
-        emissor: "English Work",
-        icone: "📘",
-        linkPdf: "../portifolio/certificados/c%20(2).pdf"
-      },
-      {
-        titulo: "Inglês Nível Avançado",
-        emissor: "English Work",
-        icone: "📘",
-        linkPdf: "../portifolio/certificados/c%20(3).pdf"
-      },
-      {
-        titulo: "Inglês 1",
-        emissor: "Plataforma aprenda",
-        icone: "📘",
-        linkPdf: "../portifolio/certificados/PROT_2754720884496551.pdf"
-      },
-      {
-        titulo: "Canva: Design Gráfico Descomplicado",
-        emissor: "Udemy",
-        icone: "🎨",
-        linkPdf: "../portifolio/certificados/canva.pdf"
-      },
-      {
-        titulo: "Forte Mente - Desenvolvimento Pessoal",
-        emissor: "Udemy",
-        icone: "📱",
-        linkPdf: "../portifolio/certificados/fortemente.pdf"
-      },
-      {
-        titulo: " CURSO DE CONVERSAÇÃO - CONVERSATION CLUB",
-        emissor: "Mais Língua",
-        icone: "🔧",
-        linkPdf: "../portifolio/certificados/ingles.pdf"
-      },
-      {
-        titulo: "Create Your First Website with HTML, CSS & JavaScript",
-        emissor: "Udemy",
-        icone: "🖥️",
-        linkPdf: "../portifolio/certificados/htmlecss.pdf"
-      },
-      {
-        titulo: "HTML, CSS, & JavaScript",
-        emissor: "Udemy",
-        icone: "🖥️",
-        linkPdf: "../portifolio/certificados/htmlcssjs.pdf"
-      },
-      {
-        titulo: " ZOОМ Masterclass: Grundlagen, Anleitungen und geheime Tricks",
-        emissor: "Udemy",
-        icone: "✨",
-        linkPdf: "../portifolio/certificados/zoom.pdf"
-      }
-    ];
+// LISTA DE CERTIFICADOS EM PDF
+// ============================================================
+const certificadosPdf = [
+  { titulo: "Learn CSS - For Beginners", emissor: "Udemy", icone: "⚡", linkPdf: "../portifolio/certificados/learningcss.pdf" },
+  { titulo: "Inglês Nível Intermediário", emissor: "English Work", icone: "📘", linkPdf: "../portifolio/certificados/c%20(2).pdf" },
+  { titulo: "Inglês Nível Avançado", emissor: "English Work", icone: "📘", linkPdf: "../portifolio/certificados/c%20(3).pdf" },
+  { titulo: "Inglês 1", emissor: "Plataforma aprenda", icone: "📘", linkPdf: "../portifolio/certificados/PROT_2754720884496551.pdf" },
+  { titulo: "Canva: Design Gráfico Descomplicado", emissor: "Udemy", icone: "🎨", linkPdf: "../portifolio/certificados/canva.pdf" },
+  { titulo: "Forte Mente - Desenvolvimento Pessoal", emissor: "Udemy", icone: "📱", linkPdf: "../portifolio/certificados/fortemente.pdf" },
+  { titulo: "CURSO DE CONVERSAÇÃO - CONVERSATION CLUB", emissor: "Mais Língua", icone: "🔧", linkPdf: "../portifolio/certificados/ingles.pdf" },
+  { titulo: "Create Your First Website with HTML, CSS & JavaScript", emissor: "Udemy", icone: "🖥️", linkPdf: "../portifolio/certificados/htmlecss.pdf" },
+  { titulo: "HTML, CSS, & JavaScript", emissor: "Udemy", icone: "🖥️", linkPdf: "../portifolio/certificados/htmlcssjs.pdf" },
+  { titulo: "ZOOM Masterclass: Grundlagen, Anleitungen und geheime Tricks", emissor: "Udemy", icone: "✨", linkPdf: "../portifolio/certificados/zoom.pdf" }
+];
 
-    // Função para renderizar a lista dentro do modal
-    function renderizarListaPDF() {
-      const container = document.getElementById("listaPdfs");
-      if (!container) return;
+function renderizarListaPDF() {
+  const container = document.getElementById("listaPdfs");
+  if (!container) return;
+  container.innerHTML = "";
+  
+  certificadosPdf.forEach(cert => {
+    const itemDiv = document.createElement("div");
+    itemDiv.className = "pdf-item";
+    
+    const infoDiv = document.createElement("div");
+    infoDiv.className = "pdf-info";
+    
+    const tituloSpan = document.createElement("span");
+    tituloSpan.className = "pdf-titulo";
+    tituloSpan.innerText = cert.titulo;
+    
+    const detalheSpan = document.createElement("span");
+    detalheSpan.className = "pdf-detalhe";
+    detalheSpan.innerHTML = `<span class="pdf-icon-pequeno">${cert.icone}</span> ${cert.emissor}`;
+    
+    infoDiv.appendChild(tituloSpan);
+    infoDiv.appendChild(detalheSpan);
+    
+    const linkBtn = document.createElement("a");
+    linkBtn.href = cert.linkPdf;
+    linkBtn.target = "_blank";
+    linkBtn.rel = "noopener noreferrer";
+    linkBtn.className = "btn-pdf";
+    linkBtn.innerHTML = "📄 Visualizar PDF →";
+    linkBtn.setAttribute('aria-label', `Visualizar certificado: ${cert.titulo}`);
+    
+    itemDiv.appendChild(infoDiv);
+    itemDiv.appendChild(linkBtn);
+    container.appendChild(itemDiv);
+  });
+}
 
-      // Limpa conteúdo anterior
-      container.innerHTML = "";
+// ============================================================
+// CONTROLE DO MODAL
+// ============================================================
+const overlay = document.getElementById("modalPdfOverlay");
+const abrirBtn = document.getElementById("btnAbrirModal");
+const fecharBtn = document.getElementById("btnFecharModal");
 
-      // Percorre array e cria os itens
-      certificadosPdf.forEach(cert => {
-        // elemento principal do item
-        const itemDiv = document.createElement("div");
-        itemDiv.className = "pdf-item";
+function abrirModal() {
+  if (overlay) {
+    overlay.classList.add("ativo");
+    document.body.style.overflow = "hidden";
+    overlay.setAttribute('aria-hidden', 'false');
+    // Foco no botão de fechar
+    setTimeout(() => { if (fecharBtn) fecharBtn.focus(); }, 100);
+  }
+}
 
-        // lado esquerdo: info
-        const infoDiv = document.createElement("div");
-        infoDiv.className = "pdf-info";
+function fecharModal() {
+  if (overlay) {
+    overlay.classList.remove("ativo");
+    document.body.style.overflow = "";
+    overlay.setAttribute('aria-hidden', 'true');
+    if (abrirBtn) abrirBtn.focus();
+  }
+}
 
-        const tituloSpan = document.createElement("span");
-        tituloSpan.className = "pdf-titulo";
-        tituloSpan.innerText = cert.titulo;
+if (abrirBtn) abrirBtn.addEventListener("click", abrirModal);
+if (fecharBtn) fecharBtn.addEventListener("click", fecharModal);
 
-        const detalheSpan = document.createElement("span");
-        detalheSpan.className = "pdf-detalhe";
-        detalheSpan.innerHTML = `<span class="pdf-icon-pequeno">${cert.icone}</span> ${cert.emissor}`;
+if (overlay) {
+  overlay.setAttribute('aria-hidden', 'true');
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) fecharModal();
+  });
+}
 
-        infoDiv.appendChild(tituloSpan);
-        infoDiv.appendChild(detalheSpan);
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && overlay && overlay.classList.contains("ativo")) {
+    fecharModal();
+  }
+});
 
-        // botão/link de visualizar PDF (abre em nova aba)
-        const linkBtn = document.createElement("a");
-        linkBtn.href = cert.linkPdf;
-        linkBtn.target = "_blank";
-        linkBtn.rel = "noopener noreferrer";
-        linkBtn.className = "btn-pdf";
-        linkBtn.innerHTML = "📄 Visualizar PDF →";
+// ============================================================
+// INICIALIZAÇÃO
+// ============================================================
+renderizarListaPDF();
 
-        itemDiv.appendChild(infoDiv);
-        itemDiv.appendChild(linkBtn);
-
-        container.appendChild(itemDiv);
-      });
+// ============================================================
+// OTIMIZAÇÃO DE PERFORMANCE: Lazy Load de imagens
+// ============================================================
+if ('loading' in HTMLImageElement.prototype) {
+  // Native lazy loading já está sendo usado via HTML
+} else {
+  // Fallback para navegadores antigos
+  const images = document.querySelectorAll('img[loading="lazy"]');
+  images.forEach(img => {
+    if (img.dataset.src) {
+      img.src = img.dataset.src;
     }
+  });
+}
 
-    // CONTROLE DO MODAL (abrir/fechar)
-    const overlay = document.getElementById("modalPdfOverlay");
-    const abrirBtn = document.getElementById("btnAbrirModal");
-    const fecharBtn = document.getElementById("btnFecharModal");
-
-    function abrirModal() {
-      if (overlay) {
-        overlay.classList.add("ativo");
-        document.body.style.overflow = "hidden"; // evita scroll atrás
-      }
+// ============================================================
+// Acessibilidade: Adicionar roles ARIA onde necessário
+// ============================================================
+document.querySelectorAll('section').forEach(section => {
+  if (!section.hasAttribute('aria-labelledby')) {
+    const heading = section.querySelector('h1, h2, h3');
+    if (heading && heading.id) {
+      section.setAttribute('aria-labelledby', heading.id);
     }
+  }
+});
 
-    function fecharModal() {
-      if (overlay) {
-        overlay.classList.remove("ativo");
-        document.body.style.overflow = "";
-      }
-    }
-
-    // Eventos
-    if (abrirBtn) abrirBtn.addEventListener("click", abrirModal);
-    if (fecharBtn) fecharBtn.addEventListener("click", fecharModal);
-
-    // Clicar no overlay (fundo escuro) também fecha
-    if (overlay) {
-      overlay.addEventListener("click", (e) => {
-        if (e.target === overlay) fecharModal();
-      });
-    }
-
-    // Tecla ESC fecha modal
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && overlay && overlay.classList.contains("ativo")) {
-        fecharModal();
-      }
-    });
-
-    // Renderiza todos os certificados em PDF assim que a página carrega
-    renderizarListaPDF();
+// ============================================================
+// Relatório de performance (console apenas em desenvolvimento)
+// ============================================================
+if (process.env.NODE_ENV !== 'production') {
+  console.log('Portfólio Kaique Bazil — Otimizado para recrutadores TI');
+}
